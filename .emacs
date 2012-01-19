@@ -22,6 +22,7 @@
 (show-paren-mode 1) ; highlights matching parens
 (setq x-select-enable-clipboard t) ; copy to clipboard
 (setq interprogram-paste-function 'x-cut-buffer-or-selection-value) ; paste from clipboard
+(tool-bar-mode -1) ; hide tool bar
 
 ;; electric pairs, enter matching pairs
 ;; (defun electric-pair ()
