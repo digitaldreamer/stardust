@@ -3,11 +3,11 @@ export PATH=$PATH:.:~/bin:~/dotfiles/bin
 alias runserver='./manage.py runserver 0.0.0.0:8000'
 
 alias source_btoys='source ~/envs/btoys/bin/activate;cd ~/projects/btoys'
-alias source_closethq='source ~/envs/closethq/bin/activate;cd ~/projects/closethq'
-alias source_darwin='source ~/envs/darwin/bin/activate;cd ~/projects/darwin'
-alias source_hatch='source ~/envs/hatch/bin/activate;cd ~/projects/hatch'
-alias source_ssv='source ~/envs/ssv/bin/activate;cd ~/projects/ssv'
-alias source_tspxyz='source ~/envs/tspxyz/bin/activate;cd ~/projects/tspxyz'
+alias source_closethq='source ~/envs/closethq/bin/activate;cd ~/projects/closethq/source'
+alias source_darwin='source ~/envs/darwin/bin/activate;cd ~/projects/darwin/source'
+alias source_hatch='source ~/envs/hatch/bin/activate;cd ~/projects/hatch/source'
+alias source_ssv='source ~/envs/ssv/bin/activate;cd ~/projects/ssv/source'
+alias source_tspxyz='source ~/envs/tspxyz/bin/activate;cd ~/projects/tspxyz/source'
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
