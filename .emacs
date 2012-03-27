@@ -160,3 +160,7 @@
   (split-window-horizontally)
   (other-window 1)
   (split-window-vertically))
+
+;; less
+(add-to-list 'load-path "~/dotfiles/emacs/less-css-mode")
+(require 'less-css-mode)
