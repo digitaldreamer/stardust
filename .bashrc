@@ -8,7 +8,7 @@ alias source_darwin='source ~/envs/darwin/bin/activate;cd ~/projects/darwin/sour
 alias source_hatch='source ~/envs/hatch/bin/activate;cd ~/projects/hatch/source'
 alias source_ssv='source ~/envs/ssv/bin/activate;cd ~/projects/ssv/source'
 alias source_tspxyz='source ~/envs/tspxyz/bin/activate;cd ~/projects/tspxyz/source'
-alias source_worldranking='source ~/envs/worldranking/bin/activate;cd ~/projects/worldranking/source'
+alias source_worldranking='source ~/envs/worldranking/bin/activate;cd ~/projects/worldranking/web-app'
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
