@@ -1,15 +1,5 @@
 export PATH=$PATH:.:~/bin:~/dotfiles/bin
 
-alias runserver='./manage.py runserver 0.0.0.0:8000'
-
-alias source_btoys='source ~/envs/btoys/bin/activate;cd ~/projects/btoys'
-alias source_closethq='source ~/envs/closethq/bin/activate;cd ~/projects/closethq/source'
-alias source_darwin='source ~/envs/darwin/bin/activate;cd ~/projects/darwin/source'
-alias source_hatch='source ~/envs/hatch/bin/activate;cd ~/projects/hatch/source'
-alias source_ssv='source ~/envs/ssv/bin/activate;cd ~/projects/ssv/source'
-alias source_tspxyz='source ~/envs/tspxyz/bin/activate;cd ~/projects/tspxyz/source'
-alias source_worldranking='source ~/envs/worldranking/bin/activate;cd ~/projects/worldranking/web-app'
-
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -52,12 +42,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
     else
-	color_prompt=
+    color_prompt=
     fi
 fi
 
@@ -89,14 +79,50 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -alF'
+
+# Bash shortcuts
+alias ..='cd ..'
+alias getip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2'
+
+# ls aliases
+alias ll='ls -ahlF'
 alias la='ls -A'
 alias l='ls -CF'
+
+# Shortcut to symlink the xapian libs to your virtualenv
+# (assumed to be in `pwd`/envs)
+alias lnxapian='ln -s /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xapian envs/lib/python2.7/site-packages/. '
+
+# Removes all *.pyc from current directory and all subdirectories
+alias pycclean='find . -name "*.pyc" -exec rm {} \;'
+
+# Shortcut to determine your current PYTHONPATH, useful in debugging when switching between virtualenv’s
+alias pypath='python -c "import sys; print sys.path" | tr "," "\n" | grep -v "egg"'
+
+# django management commands aliases
+alias run='./manage.py runserver 0.0.0.0:8000'
+alias syncdb='./manage.py syncdb'
+alias migrate='./manage.py migrate'
+alias collectstatic='./manage.py collectstatic'
+alias loaddata='./manage.py loaddata'
+alias shell='./manage.py shell_plus'
+alias dbshell='./manage.py dbshell'
+alias superuser='./manage.py createsuperuser'
+alias rebuild='./manage.py rebuild_index --noinput'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+
+# Projects aliases
+alias source_btoys='source ~/envs/btoys/bin/activate;cd ~/projects/btoys'
+alias source_closethq='source ~/envs/closethq/bin/activate;cd ~/projects/closethq/source'
+alias source_darwin='source ~/envs/darwin/bin/activate;cd ~/projects/darwin/source'
+alias source_hatch='source ~/envs/hatch/bin/activate;cd ~/projects/hatch/source'
+alias source_ssv='source ~/envs/ssv/bin/activate;cd ~/projects/ssv/source'
+alias source_tspxyz='source ~/envs/tspxyz/bin/activate;cd ~/projects/tspxyz/source'
+alias source_worldranking='source ~/envs/worldranking/bin/activate;cd ~/projects/worldranking/web-app'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -114,4 +140,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] $(__git_ps1 "(%s)")$ '
+# Terminal colors
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+
+# PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] $(__git_ps1 "(%s)")$ '
+PS1='\[\033[01;32m\]\u\[\033[01;34m\]::\[\033[01;31m\]\h \[\033[00;34m\]{ \[\033[01;34m\]\w \[\033[00;34m\]}\[\033[01;32m\]-> \[\033[00m\]'
