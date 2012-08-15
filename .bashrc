@@ -2,6 +2,7 @@ export PATH=$PATH:.:~/bin:~/dotfiles/bin
 
 alias runserver='./manage.py runserver 0.0.0.0:8000'
 
+alias source_alextoys='source ~/envs/alextoys/bin/activate;cd ~/projects/alextoys/source'
 alias source_btoys='source ~/envs/btoys/bin/activate;cd ~/projects/btoys'
 alias source_closethq='source ~/envs/closethq/bin/activate;cd ~/projects/closethq/source'
 alias source_darwin='source ~/envs/darwin/bin/activate;cd ~/projects/darwin/source'
