@@ -13,10 +13,6 @@
 local_settings.py
 backups/
 envs/
-android/.project
-android/.classpath
-android/.settings/
-android/bin/
 source/database.db
 source/search/site_index/
 source/media/CACHE/
