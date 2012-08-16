@@ -66,15 +66,15 @@ alias pypath='python -c "import sys; print sys.path" | tr "," "\n" | grep -v "eg
 
 
 # django management commands aliases
-alias run='.source/manage.py runserver 0.0.0.0:8000'
-alias syncdb='.source/manage.py syncdb'
-alias migrate='.source/manage.py migrate'
-alias collectstatic='.source/manage.py collectstatic'
-alias loaddata='.source/manage.py loaddata'
-alias shell='.source/manage.py shell_plus'
-alias dbshell='.source/manage.py dbshell'
-alias superuser='.source/manage.py createsuperuser'
-alias rebuild='.source/manage.py rebuild_index --noinput'
+alias run='.manage.py runserver 0.0.0.0:8000'
+alias syncdb='.manage.py syncdb'
+alias migrate='.manage.py migrate'
+alias collectstatic='.manage.py collectstatic'
+alias loaddata='.manage.py loaddata'
+alias shell='.manage.py shell_plus'
+alias dbshell='.manage.py dbshell'
+alias superuser='.manage.py createsuperuser'
+alias rebuild='.manage.py rebuild_index --noinput'
 
 
 # Shortcut to symlink the xapian libs to your virtualenv

@@ -45,12 +45,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
     else
-	color_prompt=
+    color_prompt=
     fi
 fi
 
@@ -119,12 +119,12 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 
 # Projects aliases
-alias btoys='source ~/projects/btoys/envs/bin/activate;cd ~/projects/btoys'
-alias closet='source ~/projects/closethq/evns/bin/activate;cd ~/projects/closethq/source'
-alias hatch='source ~/projects/hatch/envs/bin/activate;cd ~/projects/hatch/source'
-alias ssv='source ~/projects/ssv/bin/activate;cd ~/projects/ssv/source'
-alias tspxyz='source ~/projects/tspxyz/envs/bin/activate;cd ~/projects/tspxyz/source'
-alias worldranking='source ~/projects/worldranking/bin/activate;cd ~/projects/worldranking/web-app'
+alias btoys='source ~/envs/btoys/bin/activate;cd ~/projects/btoys'
+alias closet='source ~/envs/closethq/bin/activate;cd ~/projects/closethq/source'
+alias hatch='source ~/envs/hatch/bin/activate;cd ~/projects/hatch/source'
+alias ssv='source ~/envs/ssv/bin/activate;cd ~/projects/ssv/source'
+alias tspxyz='source ~/envs/tspxyz/bin/activate;cd ~/projects/tspxyz/source'
+alias worldranking='source ~/envs/worldranking/bin/activate;cd ~/projects/worldranking/web-app'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
