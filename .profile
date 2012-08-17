@@ -66,15 +66,15 @@ alias pypath='python -c "import sys; print sys.path" | tr "," "\n" | grep -v "eg
 
 
 # django management commands aliases
-alias run='.manage.py runserver 0.0.0.0:8000'
-alias syncdb='.manage.py syncdb'
-alias migrate='.manage.py migrate'
-alias collectstatic='.manage.py collectstatic'
-alias loaddata='.manage.py loaddata'
-alias shell='.manage.py shell_plus'
-alias dbshell='.manage.py dbshell'
-alias superuser='.manage.py createsuperuser'
-alias rebuild='.manage.py rebuild_index --noinput'
+alias run='./manage.py runserver 0.0.0.0:8000'
+alias syncdb='./manage.py syncdb'
+alias migrate='./manage.py migrate'
+alias collectstatic='./manage.py collectstatic'
+alias loaddata='./manage.py loaddata'
+alias shell='./manage.py shell_plus'
+alias dbshell='./manage.py dbshell'
+alias superuser='./manage.py createsuperuser'
+alias rebuild='./manage.py rebuild_index --noinput'
 
 
 # Shortcut to symlink the xapian libs to your virtualenv
@@ -103,11 +103,12 @@ alias gstatus='git status'
 
 
 # Projects shortcuts
-alias ranking='source /Users/typhoon/envs/worldranking/bin/activate && cd /Users/typhoon/projects/worldranking'
-alias hatch='source /Users/typhoon/envs/hatch/bin/activate && cd /Users/typhoon/projects/hatch'
-alias ssv='source /Users/typhoon/envs/ssv/bin/activate && cd /Users/typhoon/projects/ssv'
-alias closet='source /Users/typhoon/envs/closet/bin/activate && cd /Users/typhoon/projects/closet'
-
+alias ranking='source /Users/typhoon/envs/worldranking/bin/activate && cd /Users/typhoon/projects/worldranking/web-app'
+alias hatch='source /Users/typhoon/envs/hatch/bin/activate && cd /Users/typhoon/projects/hatch/source'
+alias ssv='source /Users/typhoon/envs/ssv/bin/activate && cd /Users/typhoon/projects/ssv/source'
+alias closet='source /Users/typhoon/envs/closet/bin/activate && cd /Users/typhoon/projects/closet/source'
+alias btoys='source /Users/typhoon/envs/btoys/bin/activate && cd /Users/typhoon/projects/btoys'
+alias dotfiles='cd /Users/typhoon/projects/dotfiles'
 
 # Running realtime sass proccess for monitoring static files
 alias runsass='sass --scss --watch core/static/scss:static/css'
