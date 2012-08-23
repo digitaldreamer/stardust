@@ -105,10 +105,10 @@ alias gstatus='git status'
 # Projects shortcuts
 alias alextoys='source /Users/typhoon/envs/alextoys/bin/activate && cd /Users/typhoon/projects/alextoys'
 alias btoys='source /Users/typhoon/envs/btoys/bin/activate && cd /Users/typhoon/projects/btoys'
-alias closet='source /Users/typhoon/envs/closethq/bin/activate && cd /Users/typhoon/projects/closet/source'
+alias closethq='source /Users/typhoon/envs/closethq/bin/activate && cd /Users/typhoon/projects/closethq/source'
 alias dotfiles='cd /Users/typhoon/projects/dotfiles'
 alias hatch='source /Users/typhoon/envs/hatch/bin/activate && cd /Users/typhoon/projects/hatch/source'
-alias ranking='source /Users/typhoon/envs/worldranking/bin/activate && cd /Users/typhoon/projects/worldranking/web-app'
+alias worldranking='source /Users/typhoon/envs/worldranking/bin/activate && cd /Users/typhoon/projects/worldranking/web-app'
 alias ssv='source /Users/typhoon/envs/ssv/bin/activate && cd /Users/typhoon/projects/ssv/source'
 
 # Running realtime sass proccess for monitoring static files
