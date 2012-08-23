@@ -67,6 +67,7 @@ alias pypath='python -c "import sys; print sys.path" | tr "," "\n" | grep -v "eg
 
 # django management commands aliases
 alias run='./manage.py runserver 0.0.0.0:8000'
+alias srun='./source/manage.py runserver 0.0.0.0:8000'
 alias syncdb='./manage.py syncdb'
 alias migrate='./manage.py migrate'
 alias collectstatic='./manage.py collectstatic'
