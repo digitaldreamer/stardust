@@ -104,6 +104,7 @@ alias pypath='python -c "import sys; print sys.path" | tr "," "\n" | grep -v "eg
 
 # django management commands aliases
 alias run='./manage.py runserver 0.0.0.0:8000'
+alias srun='./source/manage.py runserver 0.0.0.0:8000'
 alias syncdb='./manage.py syncdb'
 alias migrate='./manage.py migrate'
 alias collectstatic='./manage.py collectstatic'
@@ -119,11 +120,11 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 
 # Projects aliases
+alias alextoys='source ~/envs/alextoys/bin/activate;cd ~/projects/alextoys/source'
 alias btoys='source ~/envs/btoys/bin/activate;cd ~/projects/btoys'
-alias closet='source ~/envs/closethq/bin/activate;cd ~/projects/closethq/source'
+alias closethq='source ~/envs/closethq/bin/activate;cd ~/projects/closethq/source'
 alias hatch='source ~/envs/hatch/bin/activate;cd ~/projects/hatch/source'
 alias ssv='source ~/envs/ssv/bin/activate;cd ~/projects/ssv/source'
-alias tspxyz='source ~/envs/tspxyz/bin/activate;cd ~/projects/tspxyz/source'
 alias worldranking='source ~/envs/worldranking/bin/activate;cd ~/projects/worldranking/web-app'
 
 # Alias definitions.
