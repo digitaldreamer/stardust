@@ -69,6 +69,7 @@ alias pypath='python -c "import sys; print sys.path" | tr "," "\n" | grep -v "eg
 alias run='./manage.py runserver 0.0.0.0:8000'
 alias srun='./source/manage.py runserver 0.0.0.0:8000'
 alias syncdb='./manage.py syncdb'
+alias schema='./manage.py schemamigration'
 alias migrate='./manage.py migrate'
 alias schema='./manage.py schemamigration'
 alias collectstatic='./manage.py collectstatic --noinput'
