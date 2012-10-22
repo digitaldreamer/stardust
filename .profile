@@ -70,7 +70,8 @@ alias run='./manage.py runserver 0.0.0.0:8000'
 alias srun='./source/manage.py runserver 0.0.0.0:8000'
 alias syncdb='./manage.py syncdb'
 alias migrate='./manage.py migrate'
-alias collectstatic='./manage.py collectstatic'
+alias schema='./manage.py schemamigration'
+alias collectstatic='./manage.py collectstatic --noinput'
 alias loaddata='./manage.py loaddata'
 alias shell='./manage.py shell_plus'
 alias dbshell='./manage.py dbshell'
@@ -83,7 +84,7 @@ alias rebuild='./manage.py rebuild_index --noinput'
 alias lnxapian='ln -s /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xapian envs/lib/python2.7/site-packages/. '
 
 
-# Shortcut for PostgreSQL server start/stop 
+# Shortcut for PostgreSQL server start/stop
 alias pgstart='sudo su postgres -c '\''/opt/local/lib/postgresql91/bin/pg_ctl -D /opt/local/var/db/postgresql91/defaultdb start'\'''
 # alias pgstart='sudo su postgres -c '\''/opt/local/lib/postgresql91/bin/postgres -D /opt/local/var/db/postgresql91/defaultdb'\'''
 alias pgstop='sudo su postgres -c '\''/opt/local/lib/postgresql91/bin/pg_ctl -D /opt/local/var/db/postgresql91/defaultdb stop'\'''
