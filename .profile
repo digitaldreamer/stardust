@@ -77,7 +77,7 @@ alias loaddata='./manage.py loaddata'
 alias shell='./manage.py shell_plus'
 alias dbshell='./manage.py dbshell'
 alias superuser='./manage.py createsuperuser'
-alias rebuild='./manage.py rebuild_index --noinput'
+alias rebuild='./manage.py rebuild_index'
 
 
 # Shortcut to symlink the xapian libs to your virtualenv
