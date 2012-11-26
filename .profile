@@ -71,7 +71,6 @@ alias srun='./source/manage.py runserver 0.0.0.0:8000'
 alias syncdb='./manage.py syncdb'
 alias schema='./manage.py schemamigration'
 alias migrate='./manage.py migrate'
-alias schema='./manage.py schemamigration'
 alias collectstatic='./manage.py collectstatic --noinput'
 alias loaddata='./manage.py loaddata'
 alias shell='./manage.py shell_plus'
@@ -111,8 +110,16 @@ alias btoys='source /Users/typhoon/envs/btoys/bin/activate && cd /Users/typhoon/
 alias closethq='source /Users/typhoon/envs/closethq/bin/activate && cd /Users/typhoon/projects/closethq/source'
 alias dotfiles='cd /Users/typhoon/projects/dotfiles'
 alias hatch='source /Users/typhoon/envs/hatch/bin/activate && cd /Users/typhoon/projects/hatch/source'
-alias worldranking='source /Users/typhoon/envs/worldranking/bin/activate && cd /Users/typhoon/projects/worldranking/web-app'
 alias ssv='source /Users/typhoon/envs/ssv/bin/activate && cd /Users/typhoon/projects/ssv/source'
+alias tspxyz='source /Users/typhoon/envs/tspxyz/bin/activate && cd /Users/typhoon/projects/tspxyz/source'
+alias worldranking='source /Users/typhoon/envs/worldranking/bin/activate && cd /Users/typhoon/projects/worldranking/web-app'
+
+
+# Server restart
+alias reloadnginx='sudo /etc/init.d/nginx reload'
+alias reloadapache='sudo /etc/init.d/apache2 reload'
+alias reloadmemcached='sudo /etc/init.d/memcached restart'
+
 
 # Running realtime sass proccess for monitoring static files
 alias runsass='sass --scss --watch core/static/scss:static/css'
