@@ -110,6 +110,7 @@ alias btoys='source /Users/typhoon/envs/btoys/bin/activate && cd /Users/typhoon/
 alias closethq='source /Users/typhoon/envs/closethq/bin/activate && cd /Users/typhoon/projects/closethq/source'
 alias dotfiles='cd /Users/typhoon/projects/dotfiles'
 alias hatch='source /Users/typhoon/envs/hatch/bin/activate && cd /Users/typhoon/projects/hatch/source'
+alias prinkshop='source /Users/typhoon/envs/prinkshop/bin/activate && cd /Users/typhoon/projects/prinkshop/source'
 alias ssv='source /Users/typhoon/envs/ssv/bin/activate && cd /Users/typhoon/projects/ssv/source'
 alias tspxyz='source /Users/typhoon/envs/tspxyz/bin/activate && cd /Users/typhoon/projects/tspxyz/source'
 alias worldranking='source /Users/typhoon/envs/worldranking/bin/activate && cd /Users/typhoon/projects/worldranking/web-app'
