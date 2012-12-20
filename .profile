@@ -118,9 +118,9 @@ alias worldranking='source /Users/typhoon/envs/worldranking/bin/activate && cd /
 
 # Server restart
 alias reloadnginx='sudo /etc/init.d/nginx reload'
-alias reloadapache='sudo /etc/init.d/apache2 reload'
 alias reloadmemcached='sudo /etc/init.d/memcached restart'
-
+alias reloadapache='sudo /etc/init.d/apache2 reload'
+alias reloadservers='reloadnginx; reloadmemcached; reloadapache'
 
 # Running realtime sass proccess for monitoring static files
 alias runsass='sass --scss --watch core/static/scss:static/css'
