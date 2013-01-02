@@ -108,6 +108,7 @@ alias lib='cd /Users/typhoon/Google\ Drive/Library/'
 alias reloadnginx='sudo /etc/init.d/nginx reload'
 alias reloadmemcached='sudo /etc/init.d/memcached restart'
 alias reloadapache='sudo /etc/init.d/apache2 reload'
+alias reloadpostgres='sudo /etc/init.d/postgresql restart'
 alias reloadservers='reloadnginx; reloadmemcached; reloadapache'
 
 # Running realtime sass proccess for monitoring static files

@@ -125,6 +125,7 @@ alias alextoys='source /var/www/alextoys/envs/alextoys/bin/activate && cd /var/w
 alias reloadnginx='sudo /etc/init.d/nginx reload'
 alias reloadmemcached='sudo /etc/init.d/memcached restart'
 alias reloadapache='sudo /etc/init.d/apache2 reload'
+alias reloadpostgres='sudo /etc/init.d/postgresql restart'
 alias reloadservers='reloadnginx; reloadmemcached; reloadapache'
 
 # Alias definitions.
