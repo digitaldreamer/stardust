@@ -144,6 +144,10 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# bash completion
+# wget -O ~/.django/django_bash_completion https://raw.github.com/django/django/master/extras/django_bash_completion
+. ~/.django/django_bash_completion
+
 # Terminal colors
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
