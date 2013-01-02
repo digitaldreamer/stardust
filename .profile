@@ -90,20 +90,6 @@ alias pgstart='sudo su postgres -c '\''/opt/local/lib/postgresql91/bin/pg_ctl -D
 alias pgstop='sudo su postgres -c '\''/opt/local/lib/postgresql91/bin/pg_ctl -D /opt/local/var/db/postgresql91/defaultdb stop'\'''
 
 
-# Git shortcuts
-alias gadd='git add'
-alias gbranch='git branch'
-alias gcheckout='git checkout'
-alias gclone='git clone'
-alias gcommit='git commit'
-alias gdiff='git diff | mate'
-alias glog='git log'
-alias gl1='git log -1'
-alias gpull='git pull'
-alias gpush='git push'
-alias gstatus='git status'
-
-
 # Projects shortcuts
 alias alextoys='source /Users/typhoon/envs/alextoys/bin/activate && cd /Users/typhoon/projects/alextoys/source'
 alias btoys='source /Users/typhoon/envs/btoys/bin/activate && cd /Users/typhoon/projects/btoys'
@@ -115,6 +101,8 @@ alias ssv='source /Users/typhoon/envs/ssv/bin/activate && cd /Users/typhoon/proj
 alias tspxyz='source /Users/typhoon/envs/tspxyz/bin/activate && cd /Users/typhoon/projects/tspxyz/source'
 alias worldranking='source /Users/typhoon/envs/worldranking/bin/activate && cd /Users/typhoon/projects/worldranking/web-app'
 
+# Nav shortcuts
+alias lib='cd /Users/typhoon/Google\ Drive/Library/'
 
 # Server restart
 alias reloadnginx='sudo /etc/init.d/nginx reload'

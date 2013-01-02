@@ -118,13 +118,14 @@ alias rebuild='./manage.py rebuild_index --noinput'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 
-# Projects aliases
-alias btoys='source ~/projects/btoys/envs/bin/activate;cd ~/projects/btoys'
-alias closet='source ~/projects/closethq/evns/bin/activate;cd ~/projects/closethq/source'
-alias hatch='source ~/projects/hatch/envs/bin/activate;cd ~/projects/hatch/source'
-alias ssv='source ~/projects/ssv/bin/activate;cd ~/projects/ssv/source'
-alias tspxyz='source ~/projects/tspxyz/envs/bin/activate;cd ~/projects/tspxyz/source'
-alias worldranking='source ~/projects/worldranking/bin/activate;cd ~/projects/worldranking/web-app'
+# Projects alias 
+alias alextoys='source /var/www/alextoys/envs/alextoys/bin/activate && cd /var/www/alextoys/source'
+
+# Server restart
+alias reloadnginx='sudo /etc/init.d/nginx reload'
+alias reloadmemcached='sudo /etc/init.d/memcached restart'
+alias reloadapache='sudo /etc/init.d/apache2 reload'
+alias reloadservers='reloadnginx; reloadmemcached; reloadapache'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
