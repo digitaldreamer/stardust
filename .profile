@@ -100,6 +100,7 @@ alias prinkshop='source /Users/typhoon/envs/prinkshop/bin/activate && cd /Users/
 alias ssv='source /Users/typhoon/envs/ssv/bin/activate && cd /Users/typhoon/projects/ssv/source'
 alias tspxyz='source /Users/typhoon/envs/tspxyz/bin/activate && cd /Users/typhoon/projects/tspxyz/source'
 alias worldranking='source /Users/typhoon/envs/worldranking/bin/activate && cd /Users/typhoon/projects/worldranking/web-app'
+alias crossover='source /Users/typhoon/envs/crossover/bin/activate && cd /Users/typhoon/projects/crossover/source'
 
 # Nav shortcuts
 alias lib='cd /Users/typhoon/Google\ Drive/Library/'
