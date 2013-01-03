@@ -113,10 +113,12 @@ alias dbshell='./manage.py dbshell'
 alias superuser='./manage.py createsuperuser'
 alias rebuild='./manage.py rebuild_index --noinput'
 
+# crate new database from template
+alias newdb='createdb -T template_postgis'
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 
 # Projects alias 
 alias alextoys='source /var/www/alextoys/envs/alextoys/bin/activate && cd /var/www/alextoys/source'

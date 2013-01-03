@@ -64,7 +64,6 @@ alias pycclean='find . -name "*.pyc" -exec rm {} \;'
 # Shortcut to determine your current PYTHONPATH, useful in debugging when switching between virtualenv’s
 alias pypath='python -c "import sys; print sys.path" | tr "," "\n" | grep -v "egg"'
 
-
 # django management commands aliases
 alias run='./manage.py runserver 0.0.0.0:8000'
 alias srun='./source/manage.py runserver 0.0.0.0:8000'
@@ -88,7 +87,8 @@ alias lnxapian='ln -s /opt/local/Library/Frameworks/Python.framework/Versions/2.
 alias pgstart='sudo su postgres -c '\''/opt/local/lib/postgresql91/bin/pg_ctl -D /opt/local/var/db/postgresql91/defaultdb start'\'''
 # alias pgstart='sudo su postgres -c '\''/opt/local/lib/postgresql91/bin/postgres -D /opt/local/var/db/postgresql91/defaultdb'\'''
 alias pgstop='sudo su postgres -c '\''/opt/local/lib/postgresql91/bin/pg_ctl -D /opt/local/var/db/postgresql91/defaultdb stop'\'''
-
+# crate new database from template
+alias newdb='createdb -T template_postgis'
 
 # Projects shortcuts
 alias alextoys='source /Users/typhoon/envs/alextoys/bin/activate && cd /Users/typhoon/projects/alextoys/source'
