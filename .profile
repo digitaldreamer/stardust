@@ -13,8 +13,10 @@ fi
 # Django Completion
 . ~/.django/django_bash_completion
 
+# npm completion
+source /opt/local/lib/node_modules/npm/lib/utils/completion.sh
 
-# Pip completion
+# pip completion
 _pip_completion()
 {
    COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
