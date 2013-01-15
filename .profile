@@ -67,17 +67,18 @@ alias pycclean='find . -name "*.pyc" -exec rm {} \;'
 alias pypath='python -c "import sys; print sys.path" | tr "," "\n" | grep -v "egg"'
 
 # django management commands aliases
-alias run='./manage.py runserver 0.0.0.0:8000'
-alias srun='./source/manage.py runserver 0.0.0.0:8000'
-alias syncdb='./manage.py syncdb'
-alias schema='./manage.py schemamigration'
-alias migrate='./manage.py migrate'
 alias collectstatic='./manage.py collectstatic --noinput'
-alias loaddata='./manage.py loaddata'
-alias shell='./manage.py shell_plus'
+alias compress='./manage.py compress'
 alias dbshell='./manage.py dbshell'
-alias superuser='./manage.py createsuperuser'
+alias loaddata='./manage.py loaddata'
+alias migrate='./manage.py migrate'
 alias rebuild='./manage.py rebuild_index'
+alias run='./manage.py runserver 0.0.0.0:8000'
+alias schema='./manage.py schemamigration'
+alias shell='./manage.py shell_plus'
+alias srun='./source/manage.py runserver 0.0.0.0:8000'
+alias superuser='./manage.py createsuperuser'
+alias syncdb='./manage.py syncdb'
 
 
 # Shortcut to symlink the xapian libs to your virtualenv
@@ -103,6 +104,7 @@ alias hatch='source /Users/typhoon/envs/hatch/bin/activate && cd /Users/typhoon/
 alias prinkshop='source /Users/typhoon/envs/prinkshop/bin/activate && cd /Users/typhoon/projects/prinkshop/source'
 alias ssv='source /Users/typhoon/envs/ssv/bin/activate && cd /Users/typhoon/projects/ssv/source'
 alias tspxyz='source /Users/typhoon/envs/tspxyz/bin/activate && cd /Users/typhoon/projects/tspxyz/source'
+alias twobirds='source /Users/typhoon/envs/twobirds/bin/activate && cd /Users/typhoon/projects/twobirds/twobirds'
 alias worldranking='source /Users/typhoon/envs/worldranking/bin/activate && cd /Users/typhoon/projects/worldranking/web-app'
 
 # Nav shortcuts
