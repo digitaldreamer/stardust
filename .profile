@@ -1,6 +1,7 @@
-# MacPorts Installer addition on 2011-07-19_at_07:17:01: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
+# clean up after fully migrated to homebrew
+export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/share/python:/usr/local/share/python3:$PATH
 export PATH=/opt/local/lib/postgresql91/bin:$PATH
+export PYTHONPATH="/usr/local/lib/python:$PYTHONPATH"
 export NODE_PATH="/opt/local/lib/node_modules/"
 
 
@@ -9,9 +10,15 @@ if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
 fi
 
+# migrate completely to homebrew and remove above
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
 
-# Django Completion
-. ~/.django/django_bash_completion
+# django completion
+if [ -f ~/.django/django_bash_completion ]; then
+   . ~/.django/django_bash_completion
+fi
 
 # npm completion
 source /opt/local/lib/node_modules/npm/lib/utils/completion.sh
