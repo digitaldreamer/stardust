@@ -1,6 +1,5 @@
-# clean up after fully migrated to homebrew
-export PATH=/usr/local/bin:usr/bin:/usr/local/share/python:/usr/local/share/python3:$PATH
-export PYTHONPATH="/usr/local/lib/python:$PYTHONPATH"
+export PATH=/usr/local/share/python:/usr/local/share/python3:/usr/local/share/npm/bin:$PATH
+export NODE_PATH="/usr/local/lib/node_modules"
 
 
 # Bash completion
@@ -8,10 +7,12 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
+
 # django completion
 if [ -f ~/.django/django_bash_completion ]; then
    . ~/.django/django_bash_completion
 fi
+
 
 # pip completion
 _pip_completion()
@@ -84,10 +85,6 @@ alias syncdb='./manage.py syncdb'
 alias lnxapian='ln -s /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xapian envs/lib/python2.7/site-packages/. '
 
 
-# Shortcut for PostgreSQL server start/stop
-alias pgstart='sudo su postgres -c '\''/opt/local/lib/postgresql91/bin/pg_ctl -D /opt/local/var/db/postgresql91/defaultdb start'\'''
-# alias pgstart='sudo su postgres -c '\''/opt/local/lib/postgresql91/bin/postgres -D /opt/local/var/db/postgresql91/defaultdb'\'''
-alias pgstop='sudo su postgres -c '\''/opt/local/lib/postgresql91/bin/pg_ctl -D /opt/local/var/db/postgresql91/defaultdb stop'\'''
 # crate new database from template
 alias newdb='createdb -T template_postgis'
 
