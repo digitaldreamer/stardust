@@ -87,6 +87,9 @@ alias lnxapian='ln -s /opt/local/Library/Frameworks/Python.framework/Versions/2.
 
 # crate new database from template
 alias newdb='createdb -T template_postgis'
+alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+
 
 # Projects shortcuts
 alias alextoys='source /Users/typhoon/envs/alextoys/bin/activate && cd /Users/typhoon/projects/alextoys/source'
