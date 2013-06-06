@@ -8,7 +8,10 @@ This is my attempt to organize my dotfiles and system settings.
 SYSTEM
 
 mkdir projects
-sudo apt-get install virtualbox-guest-additions
+#sudo apt-get install virtualbox-guest-additions
+sudo apt-get install ssh
+mkdir projects
+sudo mount /dev/cdrom ~/projects
 
 ssh keys
 git config --global user.name username
