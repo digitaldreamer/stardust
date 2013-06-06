@@ -30,8 +30,11 @@ ubuntu:
 	sudo apt-get install -y git-core
 	sudo apt-get install -y bash-completion
 	sudo apt-get install -y nginx
-	sudo apt-get install -y apache2
-	sudo apt-get install -y libapache2-mod-wsgi
+	#sudo apt-get install -y mysql-server
+	#sudo apt-get install -y apache2
+	#sudo apt-get install -y libapache2-mod-php5
+	#sudo apt-get install -y libapache2-mod-wsgi
+	#sudo apt-get install -y php5-mysql
 	sudo apt-get install -y python-dev
 	sudo apt-get install -y python-setuptools
 	sudo apt-get install -y python-imaging
