@@ -1,5 +1,10 @@
-export PATH=$PATH:/Users/poyzer/dev/android-sdk-macosx/platform-tools
-export PATH=$PATH:.:~/bin:~/dotfiles/bin
+export PATH=$PATH:.
+export PATH=$PATH:~/bin:~/dotfiles/bin
+export PATH=$PATH:~/dev/android-sdk-macosx/platform-tools
+export PATH=$PATH:~/development/android-sdk-macosx/platform-tools
+export PATH=$PATH:/Applications/SenchaSDKTools-2.0.0-Beta
+export PATH=$PATH:/Applications/SenchaSDKTools-2.0.0-Beta/bin
+export PATH=$PATH:/Applications/SenchaSDKTools-2.0.0-Beta/jsbuilder
 
 alias runserver='./manage.py runserver 0.0.0.0:8000'
 
@@ -11,6 +16,8 @@ alias source_hatch='source ~/envs/hatch/bin/activate;cd ~/projects/hatch/source'
 alias source_ssv='source ~/envs/ssv/bin/activate;cd ~/projects/ssv/source'
 alias source_tspxyz='source ~/envs/tspxyz/bin/activate;cd ~/projects/tspxyz/source'
 alias source_worldranking='source ~/envs/worldranking/bin/activate;cd ~/projects/worldranking/web-app'
+
+export CLICOLOR=1
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)

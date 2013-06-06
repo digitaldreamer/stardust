@@ -108,7 +108,7 @@ set modeline
 set modelines=5
 
 " COLORS AND FONTS
-colorscheme muon
+colorscheme ir_black
 set guifont=Menlo:h12
 set linespace=1
 set antialias
