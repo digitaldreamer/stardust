@@ -1,8 +1,9 @@
+ALL=bash emacs vim
 DOTFILES=~/dotfiles
 
-.PHONY: bash emacs vim
+.PHONY: $(ALL)
 
-all: bash emacs vim
+all: $(ALL)
 
 bash:
 	mv ~/.bashrc ~/.bashrc.bk
@@ -14,8 +15,7 @@ emacs:
 vim:
 	ln -s $(DOTFILES)/.vimrc ~/.vimrc
 	mkdir ~/.vim
-	mkdir ~/.vim/colors
-	cp $(DOTFILES)/vim/colors/* ~/.vim/colors/
+	cp -R $(DOTFILES)/vim/* ~/.vim/
 	git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 	vim +BundleInstall +qall
 	cd ~/.vim/bundle/command-t/; rake make

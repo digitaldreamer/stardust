@@ -1,3 +1,4 @@
+export PATH=$PATH:/Users/poyzer/dev/android-sdk-macosx/platform-tools
 export PATH=$PATH:.:~/bin:~/dotfiles/bin
 
 alias runserver='./manage.py runserver 0.0.0.0:8000'
