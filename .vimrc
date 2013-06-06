@@ -60,6 +60,7 @@ set foldlevelstart=99 "no folds, please
 set timeoutlen=250 "time to wait for a command (after leader, for example)
 set showmatch "show matching brackets
 set matchtime=2 "how many tenths of a second to blink
+set gcr=n:blinkon0 "turn off blinking cursor in normal mode
 
 " SEARCHING
 set nohlsearch
