@@ -59,7 +59,7 @@ ubuntu:
 	sudo apt-get install -y python-dev
 	sudo apt-get install -y python-setuptools
 	sudo apt-get install -y python-imaging
-	sudo apt-get install -y python-software-properties
+	#sudo apt-get install -y python-software-properties
 	#sudo apt-get install -y python-mysqldb
 	sudo apt-get install -y postgresql
 	sudo apt-get install -y python-psycopg2
