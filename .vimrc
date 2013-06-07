@@ -176,7 +176,7 @@ let NERDTreeHighlightCursorline=1
 let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1 "show hidden files
 let NERDTreeHijackNetrw=1 "sure, hijack netrw
-let NERDTreeIgnore=['\.$', '\~$', '\.git']
+let NERDTreeIgnore=['\.$', '\~$', '\.git$', '\.pyc$', '\.DS_Store$', '\.tgz$', '\.gz$', '\.zip$', '\.o$', '\.png$', '\.jpg$', '\.jpeg$', '\.gif$', '\.bmp$', '\.mov$', '\.mp4$', '\.mp3$', '\.webm$', '\.ogg$', '\.ogv$', '\.swf$']
 
 " NERDCommenter
 let NERDSpaceDelims=1 "number of spaces to add before comments
