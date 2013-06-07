@@ -44,6 +44,7 @@ ubuntu:
 	#sudo apt-get install -y emacs
 	#sudo apt-get install -y ssh
 	sudo apt-get install -y ruby1.9.3
+	sudo apt-get install -y rake
 	sudo apt-get install -y virtualbox-guest-additions
 	sudo apt-get install -y htop
 	sudo apt-get install -y build-essential
@@ -58,6 +59,7 @@ ubuntu:
 	sudo apt-get install -y python-dev
 	sudo apt-get install -y python-setuptools
 	sudo apt-get install -y python-imaging
+	sudo apt-get install -y python-software-properties
 	#sudo apt-get install -y python-mysqldb
 	sudo apt-get install -y postgresql
 	sudo apt-get install -y python-psycopg2
@@ -76,3 +78,4 @@ ubuntu:
 	#sudo apt-get install -y libpq-dev
 	#sudo apt-get install -y postfix
 	sudo easy_install virtualenv
+	cd ~/; npm install less
