@@ -17,6 +17,8 @@ alias source_ssv='source ~/envs/ssv/bin/activate;cd ~/projects/ssv/source'
 alias source_tspxyz='source ~/envs/tspxyz/bin/activate;cd ~/projects/tspxyz/source'
 alias source_worldranking='source ~/envs/worldranking/bin/activate;cd ~/projects/worldranking/web-app'
 
+export VISUAL=vim
+export EDITOR=vim
 export CLICOLOR=1
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
