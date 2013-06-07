@@ -1,5 +1,6 @@
 export PATH=.:/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 export PATH=$PATH:~/dotfiles/bin
+export PATH=$PATH:~/node_modules/.bin
 export PATH=$PATH:~/dev/android-sdk-macosx/platform-tools
 export PATH=$PATH:~/development/android-sdk-macosx/platform-tools
 export PATH=$PATH:/Applications/SenchaSDKTools-2.0.0-Beta
