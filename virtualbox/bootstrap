@@ -1,0 +1,21 @@
+#!/bin/bash
+# run start first from host then run this file on ubuntu
+echo "github user:"
+read GIT_USER
+
+echo "github email:"
+read GIT_EMAIL
+
+mkdir ~/.ssh; chmod 700 ~/.ssh
+mv ~/id_rsa* ~/.ssh
+cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys; chmod 600 ~/.ssh/authorized_keys
+
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get -y install git-core
+
+ssh git@github.com
+git config --global color.ui true
+git config --global user.name $GIT_USER
+git config --global user.emal $GIT_EMAIL
+git clone git@github.com:digitaldreamer/dotfiles.git ~/dotfiles

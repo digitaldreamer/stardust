@@ -1,0 +1,10 @@
+#!/bin/bash
+# sudo apt-get install ssh
+echo "virtualbox user:"
+read VBOX_USER
+
+echo "virtualbox port:"
+read VBOX_PORT
+
+scp -P$VBOX_PORT ~/.ssh/id_rsa* bootstrap $VBOX_USER@localhost:~/
+ssh -p $VBOX_PORT $VBOX_USER@localhost

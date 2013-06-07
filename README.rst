@@ -7,6 +7,8 @@ This is my attempt to organize my dotfiles and system settings.
 ######
 SYSTEM
 
+scp -P2222 bootstrap localhost:~/
+
 mkdir projects
 #sudo apt-get install virtualbox-guest-additions
 sudo apt-get install ssh

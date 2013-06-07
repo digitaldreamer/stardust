@@ -1,16 +1,32 @@
 ALL=bash vim
 DOTFILES=~/dotfiles
+UNAME := $(shell uname) # detech os, not windows compliant
 
-.PHONY: $(ALL)
+.PHONY: help virtualbox $(ALL)
+
+#ifeq ($(wildcard file1),)
+#    CLEAN_SRC =
+#else
+#    CLEAN_SRC = *.h file3
+#endif
 
 help:
 	cat $(DOTFILES)/README.rst
 
 all: $(ALL)
 
+virtualbox: ubuntu vim bash
+	rm ~/bootstrap
+
 bash:
-	mv ~/.bashrc ~/.bashrc.bk
-	ln -s $(DOTFILES)/.bashrc ~/.bashrc
+	if [ $(shell uname) == "Linux" ]; then\
+		rsync --ignore-existing ~/.bashrc ~/.bashrc.bk;\
+		rm ~/.bashrc
+		ln -s $(DOTFILES)/.bashrc ~/bashrc;\
+	fi
+	if [ $(shell uname) == "Darwin" ]; then\
+		ln -s $(DOTFILES)/.bashrc ~/.bash_profile;\
+	fi
 
 emacs:
 	ln -s $(DOTFILES)/.emacs ~/.emacs
@@ -26,7 +42,7 @@ vim:
 ubuntu:
 	#sudo apt-get install -y vim
 	#sudo apt-get install -y emacs
-	sudo apt-get install -y ssh
+	#sudo apt-get install -y ssh
 	#sudo apt-get install -y virtualbox-guest-additions
 	sudo apt-get install -y htop
 	sudo apt-get install -y build-essential
@@ -46,6 +62,7 @@ ubuntu:
 	sudo apt-get install -y python-psycopg2
 	sudo apt-get install -y sqlite3
 	sudo apt-get install -y mongodb
+	#sudo apt-get install -y git-core
 	sudo apt-get install -y mercurial
 	sudo apt-get install -y subversion
 	sudo apt-get install -y memcached
