@@ -21,7 +21,7 @@ vbox: ubuntu vim bash
 bash:
 	if [ $(shell uname) == "Linux" ]; then\
 		rsync --ignore-existing ~/.bashrc ~/.bashrc.bk;\
-		rm ~/.bashrc
+		rm ~/.bashrc\
 		ln -s $(DOTFILES)/.bashrc ~/bashrc;\
 	fi
 	if [ $(shell uname) == "Darwin" ]; then\
