@@ -2,7 +2,7 @@ ALL=bash vim
 DOTFILES=~/dotfiles
 UNAME := $(shell uname) # detech os, not windows compliant
 
-.PHONY: help virtualbox $(ALL)
+.PHONY: help vbox $(ALL)
 
 #ifeq ($(wildcard file1),)
 #    CLEAN_SRC =
