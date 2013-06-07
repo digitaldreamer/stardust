@@ -63,7 +63,7 @@ set matchtime=2 "how many tenths of a second to blink
 set gcr=n:blinkon0 "turn off blinking cursor in normal mode
 
 " SEARCHING
-set nohlsearch
+set hlsearch
 set incsearch
 set ignorecase
 set smartcase
