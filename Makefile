@@ -67,6 +67,7 @@ ubuntu:
 	sudo apt-get install -y python-imaging
 	#sudo apt-get install -y python-software-properties
 	#sudo apt-get install -y python-mysqldb
+	sudo apt-get install -y libpq-dev
 	sudo apt-get install -y postgresql
 	sudo apt-get install -y python-psycopg2
 	sudo apt-get install -y sqlite3
@@ -80,7 +81,6 @@ ubuntu:
 	#sudo apt-get install -y python-xapian
 	#sudo apt-get install -y openjdk-6-jdk
 	sudo apt-get install -y nodejs
-	#sudo apt-get install -y libpq-dev
 	#sudo apt-get install -y postfix
 	sudo easy_install virtualenv
 	cd ~/; npm install less
