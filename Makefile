@@ -43,6 +43,7 @@ ubuntu:
 	#sudo apt-get install -y vim
 	#sudo apt-get install -y emacs
 	#sudo apt-get install -y ssh
+	sudo apt-get install -y ruby1.9.3
 	sudo apt-get install -y virtualbox-guest-additions
 	sudo apt-get install -y htop
 	sudo apt-get install -y build-essential
