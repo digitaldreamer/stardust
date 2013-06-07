@@ -15,7 +15,7 @@ help:
 
 all: $(ALL)
 
-virtualbox: ubuntu vim bash
+vbox: ubuntu vim bash
 	rm ~/bootstrap
 
 bash:
