@@ -19,12 +19,12 @@ vbox: ubuntu vim bash
 	rm ~/bootstrap
 
 bash:
-	if [ "$(shell uname)" == "Linux" ]; then\
+	if [ "$(shell uname)" = "Linux" ]; then\
 		rsync --ignore-existing ~/.bashrc ~/.bashrc.bk;\
-		rm ~/.bashrc\
-		ln -s $(DOTFILES)/.bashrc ~/bashrc;\
+		rm ~/.bashrc;\
+		ln -s $(DOTFILES)/.bashrc ~/.bashrc;\
 	fi
-	if [ "$(shell uname)" == "Darwin" ]; then\
+	if [ "$(shell uname)" = "Darwin" ]; then\
 		ln -s $(DOTFILES)/.bashrc ~/.bash_profile;\
 	fi
 
