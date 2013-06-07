@@ -17,6 +17,12 @@ all: $(ALL)
 
 vbox: ubuntu vim bash
 	rm ~/bootstrap
+	if [ "$(shell uname)" = "Linux" ]; then\
+		source ~/.bashrc;\
+	fi
+	if [ "$(shell uname)" = "Darwin" ]; then\
+		source ~/.bash_profile;\
+	fi
 
 bash:
 	if [ "$(shell uname)" = "Linux" ]; then\
@@ -59,7 +65,7 @@ ubuntu:
 	sudo apt-get install -y python-dev
 	sudo apt-get install -y python-setuptools
 	sudo apt-get install -y python-imaging
-	sudo apt-get install -y python-software-properties
+	#sudo apt-get install -y python-software-properties
 	#sudo apt-get install -y python-mysqldb
 	sudo apt-get install -y postgresql
 	sudo apt-get install -y python-psycopg2
@@ -74,7 +80,6 @@ ubuntu:
 	#sudo apt-get install -y python-xapian
 	#sudo apt-get install -y openjdk-6-jdk
 	sudo apt-get install -y nodejs
-	sudo apt-get install -y npm
 	#sudo apt-get install -y libpq-dev
 	#sudo apt-get install -y postfix
 	sudo easy_install virtualenv
