@@ -7,8 +7,6 @@ else
     # source the virtualenv
     if [ -f "$HOME/envs/$1/bin/activate" ] ; then
         source ~/envs/$1/bin/activate
-    else
-        echo "project: '$1' virtualenv does not exist"
     fi
 
     # cd to the project directory
