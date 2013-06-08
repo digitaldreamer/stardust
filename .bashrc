@@ -7,17 +7,10 @@ export PATH=$PATH:/Applications/SenchaSDKTools-2.0.0-Beta
 export PATH=$PATH:/Applications/SenchaSDKTools-2.0.0-Beta/bin
 export PATH=$PATH:/Applications/SenchaSDKTools-2.0.0-Beta/jsbuilder
 
+alias atom='. atom'
+alias dotfiles='cd ~/dotfiles'
+alias pyramid='pserve development.ini --reload'
 alias runserver='./manage.py runserver 0.0.0.0:8000'
-
-alias source_alextoys='source ~/envs/alextoys/bin/activate;cd ~/projects/alextoys/source'
-alias source_btoys='source ~/envs/btoys/bin/activate;cd ~/projects/btoys'
-alias source_closethq='source ~/envs/closethq/bin/activate;cd ~/projects/closethq/source'
-alias source_crossover='source ~/envs/crossover/bin/activate;cd ~/projects/crossover/source'
-alias source_darwin='source ~/envs/darwin/bin/activate;cd ~/projects/darwin/source'
-alias source_hatch='source ~/envs/hatch/bin/activate;cd ~/projects/hatch/source'
-alias source_ssv='source ~/envs/ssv/bin/activate;cd ~/projects/ssv/source'
-alias source_tspxyz='source ~/envs/tspxyz/bin/activate;cd ~/projects/tspxyz/source'
-alias source_worldranking='source ~/envs/worldranking/bin/activate;cd ~/projects/worldranking/web-app'
 
 export VISUAL=vim
 export EDITOR=vim
