@@ -40,7 +40,7 @@ vim:
 	cd ~/.vim/bundle/command-t/; rake make
 
 ubuntu:
-	mkdir -p ~/bin ~/projects ~/www
+	mkdir -p ~/bin ~/envs ~/projects ~/www
 	sudo apt-get install -y python-software-properties
 	sudo add-apt-repository ppa:chris-lea/node.js
 	sudo apt-get update
