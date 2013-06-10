@@ -17,12 +17,6 @@ all: $(ALL)
 
 vbox: ubuntu vim bash
 	rm ~/bootstrap
-	if [ "$(shell uname)" = "Linux" ]; then\
-		source ~/.bashrc;\
-	fi
-	if [ "$(shell uname)" = "Darwin" ]; then\
-		source ~/.bash_profile;\
-	fi
 
 bash:
 	if [ "$(shell uname)" = "Linux" ]; then\
@@ -39,19 +33,23 @@ emacs:
 
 vim:
 	ln -s $(DOTFILES)/.vimrc ~/.vimrc
-	mkdir ~/.vim
+	mkdir -p ~/.vim
 	cp -R $(DOTFILES)/vim/* ~/.vim/
 	git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 	vim +BundleInstall +qall
 	cd ~/.vim/bundle/command-t/; rake make
 
 ubuntu:
-	#sudo apt-get install -y vim
+	mkdir -p ~/bin ~/projects ~/www
+	sudo apt-get install -y python-software-properties
+	sudo add-apt-repository ppa:chris-lea/node.js
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get install -y vim
 	#sudo apt-get install -y emacs
 	#sudo apt-get install -y ssh
 	sudo apt-get install -y ruby1.9.3
 	sudo apt-get install -y rake
-	sudo apt-get install -y virtualbox-guest-additions
 	sudo apt-get install -y htop
 	sudo apt-get install -y build-essential
 	sudo apt-get install -y git-core
@@ -65,7 +63,6 @@ ubuntu:
 	sudo apt-get install -y python-dev
 	sudo apt-get install -y python-setuptools
 	sudo apt-get install -y python-imaging
-	#sudo apt-get install -y python-software-properties
 	#sudo apt-get install -y python-mysqldb
 	sudo apt-get install -y libpq-dev
 	sudo apt-get install -y postgresql

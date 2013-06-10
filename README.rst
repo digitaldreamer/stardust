@@ -10,14 +10,16 @@ VIRTUALBOX
 set up the following on the vbox::
 
     sudo apt-get install ssh
-    sudo mount /dev/cdrom ~/projects
-    ~/projects/VBoxLinuxAdditions.run
+    sudo apt-get install -y virtualbox-guest-additions
+    mkdir ~/cdrom
+    sudo mount /dev/cdrom ~/cdrom
+    ~/cdrom/VBoxLinuxAdditions.run
 
     sudo visudo
     %sudo   ALL=NOPASSWD: ALL
 
     sudo vim /etc/fstab
-    projects /home/poyzer/projects vboxsf uid=1000,gid=1000 0 0
+    projects /home/user/projects vboxsf uid=1000,gid=1000 0 0
 
     sudo reboot
 
@@ -29,7 +31,7 @@ run the following on the host to prep vbox::
 | the start script will copy some files to vbox and ssh as the last step
 | once complete run the following on vbox::
 
-    bootstrap
+    ~/bootstrap
     cd ~/dotfiles
     make vbox
 
