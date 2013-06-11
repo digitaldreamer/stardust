@@ -6,7 +6,7 @@ read GIT_USER
 echo "github email:"
 read GIT_EMAIL
 
-mkdir ~/.ssh; chmod 700 ~/.ssh
+mkdir -p ~/.ssh; chmod 700 ~/.ssh
 mv ~/id_rsa* ~/.ssh
 cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys; chmod 600 ~/.ssh/authorized_keys
 
@@ -15,7 +15,7 @@ mkdir -p ~/cdrom
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install make
-sudo apt-get -y install git-core
+sudo apt-get install -y git-core
 
 ssh git@github.com
 git config --global color.ui true

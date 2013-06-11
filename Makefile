@@ -23,8 +23,7 @@ bash:
 		rsync --ignore-existing ~/.bashrc ~/.bashrc.bk;\
 		rm ~/.bashrc;\
 		ln -s $(STARDUST)/.bashrc ~/.bashrc;\
-	fi
-	if [ "$(shell uname)" = "Darwin" ]; then\
+	elif [ "$(shell uname)" = "Darwin" ]; then\
 		ln -s $(STARDUST)/.bashrc ~/.bash_profile;\
 	fi
 
