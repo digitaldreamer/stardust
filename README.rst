@@ -25,14 +25,14 @@ set up the following on the vbox::
 
 run the following on the host to prep vbox::
 
-    cd ~/dotfiles/vbox
+    cd ~/stardust/vbox
     start
 
 | the start script will copy some files to vbox and ssh as the last step
 | once complete run the following on vbox::
 
-    ~/bootstrap
-    cd ~/dotfiles
+    ~/supernova
+    cd ~/stardust
     make vbox
 
 | once the vbox has been built you will want to set up any configs

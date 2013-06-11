@@ -1,5 +1,5 @@
 ALL=bash vim
-DOTFILES=~/dotfiles
+STARDUST=~/stardust
 UNAME := $(shell uname) # detech os, not windows compliant
 
 .PHONY: help vbox $(ALL)
@@ -11,30 +11,30 @@ UNAME := $(shell uname) # detech os, not windows compliant
 #endif
 
 help:
-	cat $(DOTFILES)/README.rst
+	cat $(STARDUST)/README.rst
 
 all: $(ALL)
 
 vbox: ubuntu vim bash
-	rm ~/bootstrap
+	rm ~/supernova
 
 bash:
 	if [ "$(shell uname)" = "Linux" ]; then\
 		rsync --ignore-existing ~/.bashrc ~/.bashrc.bk;\
 		rm ~/.bashrc;\
-		ln -s $(DOTFILES)/.bashrc ~/.bashrc;\
+		ln -s $(STARDUST)/.bashrc ~/.bashrc;\
 	fi
 	if [ "$(shell uname)" = "Darwin" ]; then\
-		ln -s $(DOTFILES)/.bashrc ~/.bash_profile;\
+		ln -s $(STARDUST)/.bashrc ~/.bash_profile;\
 	fi
 
 emacs:
-	ln -s $(DOTFILES)/.emacs ~/.emacs
+	ln -s $(STARDUST)/.emacs ~/.emacs
 
 vim:
-	ln -s $(DOTFILES)/.vimrc ~/.vimrc
+	ln -s $(STARDUST)/.vimrc ~/.vimrc
 	mkdir -p ~/.vim
-	cp -R $(DOTFILES)/vim/* ~/.vim/
+	cp -R $(STARDUST)/vim/* ~/.vim/
 	git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 	vim +BundleInstall +qall
 	cd ~/.vim/bundle/command-t/; rake make

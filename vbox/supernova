@@ -10,8 +10,7 @@ mkdir ~/.ssh; chmod 700 ~/.ssh
 mv ~/id_rsa* ~/.ssh
 cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys; chmod 600 ~/.ssh/authorized_keys
 
-mkdir bin
-mkdir projects
+mkdir -p ~/cdrom
 
 sudo apt-get update
 sudo apt-get upgrade
@@ -22,4 +21,4 @@ ssh git@github.com
 git config --global color.ui true
 git config --global user.name $GIT_USER
 git config --global user.email $GIT_EMAIL
-git clone git@github.com:digitaldreamer/dotfiles.git ~/dotfiles
+git clone git@github.com:digitaldreamer/stardust.git ~/stardust

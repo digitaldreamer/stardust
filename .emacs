@@ -57,11 +57,11 @@
 
 
 ;; cycle buffers
-(autoload 'cycle-buffer "~/dotfiles/emacs/cycle-buffer" "Cycle forward." t)
-(autoload 'cycle-buffer-backward "~/dotfiles/emacs/cycle-buffer" "Cycle backward." t)
-(autoload 'cycle-buffer-permissive "~/dotfiles/emacs/cycle-buffer" "Cycle forward allowing *buffers*." t)
-(autoload 'cycle-buffer-backward-permissive "~/dotfiles/emacs/cycle-buffer" "Cycle backward allowing *buffers*." t)
-(autoload 'cycle-buffer-toggle-interesting "~/dotfiles/emacs/cycle-buffer" "Toggle if this buffer will be considered." t)
+(autoload 'cycle-buffer "~/stardust/emacs/cycle-buffer" "Cycle forward." t)
+(autoload 'cycle-buffer-backward "~/stardust/emacs/cycle-buffer" "Cycle backward." t)
+(autoload 'cycle-buffer-permissive "~/stardust/emacs/cycle-buffer" "Cycle forward allowing *buffers*." t)
+(autoload 'cycle-buffer-backward-permissive "~/stardust/emacs/cycle-buffer" "Cycle backward allowing *buffers*." t)
+(autoload 'cycle-buffer-toggle-interesting "~/stardust/emacs/cycle-buffer" "Toggle if this buffer will be considered." t)
 (global-set-key [(ctrl shift right)] 'cycle-buffer)
 (global-set-key [(ctrl shift left)] 'cycle-buffer-backward)
 (global-set-key [(ctrl shift up)] 'cycle-buffer-permissive)
@@ -74,7 +74,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path "~/dotfiles/emacs")
+(add-to-list 'load-path "~/stardust/emacs")
 
 ;; line numbers
 ;; M-x linum    to toggle
@@ -82,7 +82,7 @@
 (setq linum-format "%d ")
 
 ;; color-theme
-(add-to-list 'load-path "~/dotfiles/emacs/color-theme-6.6.0")
+(add-to-list 'load-path "~/stardust/emacs/color-theme-6.6.0")
 
 (require 'color-theme)
 (color-theme-initialize)
@@ -162,5 +162,5 @@
   (split-window-vertically))
 
 ;; less
-(add-to-list 'load-path "~/dotfiles/emacs/less-css-mode")
+(add-to-list 'load-path "~/stardust/emacs/less-css-mode")
 (require 'less-css-mode)

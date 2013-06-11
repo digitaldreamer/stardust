@@ -6,5 +6,5 @@ read VBOX_USER
 echo "virtualbox port:"
 read VBOX_PORT
 
-scp -P$VBOX_PORT ~/.ssh/id_rsa* bootstrap $VBOX_USER@localhost:~/
+scp -P$VBOX_PORT ~/.ssh/id_rsa* supernova $VBOX_USER@localhost:~/
 ssh -p $VBOX_PORT $VBOX_USER@localhost
