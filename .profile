@@ -1,4 +1,4 @@
-export PATH=/usr/local/share/python:/usr/local/share/python3:/usr/local/share/npm/bin:$PATH
+export PATH=/usr/local/share/python:/usr/local/share/python3:/usr/local/share/npm/bin:/Users/$USER/bin:$PATH
 export NODE_PATH="/usr/local/lib/node_modules"
 
 
@@ -47,14 +47,17 @@ shopt -s histappend
 alias ..='cd ..'
 alias ll='ls -ahlF'
 alias getip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2'
+alias atom='. atom'
 
 
 # Shortcut for activating a virtualenv (assumed to be in `pwd`/envs)
 alias activate='. envs/bin/activate'
 
 
-# cd to envs folder
-alias envs='cd /Users/typhoon/envs'
+# useful cd shortcuts
+alias envs='cd /Users/$USER/envs'
+alias projects='cd /Users/$USER/projects'
+alias lib='cd /Users/$USER/Google\ Drive/Library/'
 
 
 # Removes all *.pyc from current directory and all subdirectories
@@ -73,7 +76,7 @@ alias migrate='./manage.py migrate'
 alias rebuild='./manage.py rebuild_index'
 alias run='./manage.py runserver 0.0.0.0:8000'
 alias schema='./manage.py schemamigration'
-alias schema='./manage.py datamigration'
+alias data='./manage.py datamigration'
 alias shell='./manage.py shell_plus'
 alias srun='./source/manage.py runserver 0.0.0.0:8000'
 alias superuser='./manage.py createsuperuser'
@@ -92,21 +95,20 @@ alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 
 
 # Projects shortcuts
-alias alextoys='source /Users/typhoon/envs/alextoys/bin/activate && cd /Users/typhoon/projects/alextoys/source'
-alias btoys='source /Users/typhoon/envs/btoys/bin/activate && cd /Users/typhoon/projects/btoys'
-alias closethq='source /Users/typhoon/envs/closethq/bin/activate && cd /Users/typhoon/projects/closethq/source'
-alias crossover='source /Users/typhoon/envs/crossover/bin/activate && cd /Users/typhoon/projects/crossover/source'
-alias darwin='source /Users/typhoon/envs/darwin/bin/activate && cd /Users/typhoon/projects/darwin'
-alias dotfiles='cd /Users/typhoon/projects/dotfiles'
-alias hatch='source /Users/typhoon/envs/hatch/bin/activate && cd /Users/typhoon/projects/hatch/source'
-alias prinkshop='source /Users/typhoon/envs/prinkshop/bin/activate && cd /Users/typhoon/projects/prinkshop/source'
-alias ssv='source /Users/typhoon/envs/ssv/bin/activate && cd /Users/typhoon/projects/ssv/source'
-alias tspxyz='source /Users/typhoon/envs/tspxyz/bin/activate && cd /Users/typhoon/projects/tspxyz/source'
-alias twobirds='source /Users/typhoon/envs/twobirds/bin/activate && cd /Users/typhoon/projects/twobirds/twobirds'
-alias worldranking='source /Users/typhoon/envs/worldranking/bin/activate && cd /Users/typhoon/projects/worldranking/web-app'
-
-# Nav shortcuts
-alias lib='cd /Users/typhoon/Google\ Drive/Library/'
+alias alextoys='source /Users/$USER/envs/alextoys/bin/activate && cd /Users/$USER/projects/alextoys/source'
+alias btoys='source /Users/$USER/envs/btoys/bin/activate && cd /Users/$USER/projects/btoys'
+alias closethq='source /Users/$USER/envs/closethq/bin/activate && cd /Users/$USER/projects/closethq/source'
+alias crossover='source /Users/$USER/envs/crossover/bin/activate && cd /Users/$USER/projects/crossover/source'
+alias darwin='source /Users/$USER/envs/darwin/bin/activate && cd /Users/$USER/projects/darwin'
+alias dotfiles='cd /Users/$USER/projects/dotfiles'
+alias hatch='source /Users/$USER/envs/hatch/bin/activate && cd /Users/$USER/projects/hatch/source'
+alias hatch='source /Users/$USER/envs/millersoath/bin/activate && cd /Users/$USER/projects/millersoath/source'
+alias prinkshop='source /Users/$USER/envs/prinkshop/bin/activate && cd /Users/$USER/projects/prinkshop/source'
+alias ssv='source /Users/$USER/envs/ssv/bin/activate && cd /Users/$USER/projects/ssv/source'
+alias prinkshop='source /Users/$USER/envs/stardust/bin/activate && cd /Users/$USER/projects/stardust/source'
+alias tspxyz='source /Users/$USER/envs/tspxyz/bin/activate && cd /Users/$USER/projects/tspxyz/source'
+alias twobirds='source /Users/$USER/envs/twobirds/bin/activate && cd /Users/$USER/projects/twobirds/twobirds'
+alias worldranking='source /Users/$USER/envs/worldranking/bin/activate && cd /Users/$USER/projects/worldranking/web-app'
 
 # Server restart
 alias reloadnginx='sudo /etc/init.d/nginx reload'
@@ -121,6 +123,6 @@ alias runsass='sass --scss --watch core/static/scss:static/css'
 
 # Load RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-[[ -s "/Users/typhoon/.rvm/scripts/rvm" ]] && source "/Users/typhoon/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s "/Users/$USER/.rvm/scripts/rvm" ]] && source "/Users/$USER/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 
