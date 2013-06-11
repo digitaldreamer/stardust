@@ -1,4 +1,4 @@
-export PATH=/usr/local/share/python:/usr/local/share/python3:/usr/local/share/npm/bin:/Users/$USER/bin:$PATH
+export PATH=/usr/local/share/python:/usr/local/share/python3:/usr/local/share/npm/bin:$HOME/bin:$PATH
 export NODE_PATH="/usr/local/lib/node_modules"
 
 
@@ -55,9 +55,9 @@ alias activate='. envs/bin/activate'
 
 
 # useful cd shortcuts
-alias envs='cd /Users/$USER/envs'
-alias projects='cd /Users/$USER/projects'
-alias lib='cd /Users/$USER/Google\ Drive/Library/'
+alias envs='cd $HOME/envs'
+alias projects='cd $HOME/projects'
+alias lib='cd $HOME/Google\ Drive/Library/'
 
 
 # Removes all *.pyc from current directory and all subdirectories
@@ -95,20 +95,20 @@ alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 
 
 # Projects shortcuts
-alias alextoys='source /Users/$USER/envs/alextoys/bin/activate && cd /Users/$USER/projects/alextoys/source'
-alias btoys='source /Users/$USER/envs/btoys/bin/activate && cd /Users/$USER/projects/btoys'
-alias closethq='source /Users/$USER/envs/closethq/bin/activate && cd /Users/$USER/projects/closethq/source'
-alias crossover='source /Users/$USER/envs/crossover/bin/activate && cd /Users/$USER/projects/crossover/source'
-alias darwin='source /Users/$USER/envs/darwin/bin/activate && cd /Users/$USER/projects/darwin'
-alias dotfiles='cd /Users/$USER/projects/dotfiles'
-alias hatch='source /Users/$USER/envs/hatch/bin/activate && cd /Users/$USER/projects/hatch/source'
-alias hatch='source /Users/$USER/envs/millersoath/bin/activate && cd /Users/$USER/projects/millersoath/source'
-alias prinkshop='source /Users/$USER/envs/prinkshop/bin/activate && cd /Users/$USER/projects/prinkshop/source'
-alias ssv='source /Users/$USER/envs/ssv/bin/activate && cd /Users/$USER/projects/ssv/source'
-alias prinkshop='source /Users/$USER/envs/stardust/bin/activate && cd /Users/$USER/projects/stardust/source'
-alias tspxyz='source /Users/$USER/envs/tspxyz/bin/activate && cd /Users/$USER/projects/tspxyz/source'
-alias twobirds='source /Users/$USER/envs/twobirds/bin/activate && cd /Users/$USER/projects/twobirds/twobirds'
-alias worldranking='source /Users/$USER/envs/worldranking/bin/activate && cd /Users/$USER/projects/worldranking/web-app'
+alias alextoys='source $HOME/envs/alextoys/bin/activate && cd $HOME/projects/alextoys/source'
+alias btoys='source $HOME/envs/btoys/bin/activate && cd $HOME/projects/btoys'
+alias closethq='source $HOME/envs/closethq/bin/activate && cd $HOME/projects/closethq/source'
+alias crossover='source $HOME/envs/crossover/bin/activate && cd $HOME/projects/crossover/source'
+alias darwin='source $HOME/envs/darwin/bin/activate && cd $HOME/projects/darwin'
+alias dotfiles='cd $HOME/projects/dotfiles'
+alias hatch='source $HOME/envs/hatch/bin/activate && cd $HOME/projects/hatch/source'
+alias hatch='source $HOME/envs/millersoath/bin/activate && cd $HOME/projects/millersoath/source'
+alias prinkshop='source $HOME/envs/prinkshop/bin/activate && cd $HOME/projects/prinkshop/source'
+alias ssv='source $HOME/envs/ssv/bin/activate && cd $HOME/projects/ssv/source'
+alias prinkshop='source $HOME/envs/stardust/bin/activate && cd $HOME/projects/stardust/source'
+alias tspxyz='source $HOME/envs/tspxyz/bin/activate && cd $HOME/projects/tspxyz/source'
+alias twobirds='source $HOME/envs/twobirds/bin/activate && cd $HOME/projects/twobirds/twobirds'
+alias worldranking='source $HOME/envs/worldranking/bin/activate && cd $HOME/projects/worldranking/web-app'
 
 # Server restart
 alias reloadnginx='sudo /etc/init.d/nginx reload'
@@ -123,6 +123,6 @@ alias runsass='sass --scss --watch core/static/scss:static/css'
 
 # Load RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-[[ -s "/Users/$USER/.rvm/scripts/rvm" ]] && source "/Users/$USER/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 
