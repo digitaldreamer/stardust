@@ -1,6 +1,4 @@
 #!/bin/bash
-HOME=~
-
 if [ $# -eq 0 ] ; then
     echo 'pass in a project name'
 else
