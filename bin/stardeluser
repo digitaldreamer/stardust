@@ -1,0 +1,26 @@
+#!//usr/bin/env python
+import argparse
+import os
+import sys
+
+BACKUP_DIR = '~/backups/users'
+
+
+def deluser(user):
+    commands = []
+    commands.append('sudo passwd -l %s' % user) # lock account
+    commands.append('sudo killall -KILL -u %s' % user) # kill all user processes
+    commands.append('mkdir -p %s' % BACKUP_DIR) # make backup dir
+    # commands.append('tar -cvzf %(dir)s/%(user)s.tgz /home/%(user)s' % {'dir': BACKUP_DIR, 'user': user})
+    commands.append('sudo deluser --force --remove-home --backup --backup-to %s %s' % (BACKUP_DIR, user)) # delete user
+    commands.append('sudo crontab -r -u %s' % user) # remove crons
+
+    for command in commands:
+        os.system(command)
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('user', help="the unix user you want to delete")
+    args = parser.parse_args()
+
+    deluser(args.user)

@@ -1,0 +1,24 @@
+#!//usr/bin/env python
+import argparse
+import os
+import sys
+
+
+def adduser(user, sudo=False):
+    commands = []
+    commands.append('sudo adduser %s' % user)
+
+    if sudo:
+        commands.append('sudo usermod -a -G sudo %s' % user)
+
+    for command in commands:
+        os.system(command)
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-s', '--sudo', action='store_true', help="provide sudo to the new user")
+    parser.add_argument('user', help="the unix user you want to add")
+    args = parser.parse_args()
+
+    adduser(args.user, sudo=args.sudo)
