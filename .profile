@@ -57,7 +57,8 @@ alias activate='. envs/bin/activate'
 # useful cd shortcuts
 alias envs='cd $HOME/envs'
 alias projects='cd $HOME/projects'
-alias lib='cd $HOME/Google\ Drive/Library/'
+alias lib='cd $HOME/Google\ Drive/Library'
+alias sublpackages='cd $HOME/Library/Application\ Support/Sublime\ Text\ 2/Packages'
 
 
 # Removes all *.pyc from current directory and all subdirectories
@@ -83,6 +84,11 @@ alias superuser='./manage.py createsuperuser'
 alias syncdb='./manage.py syncdb'
 
 
+# pyramid commands aliases
+alias prun='pserve development.ini --reload'
+alias pshell='pshell development.ini'
+
+
 # Shortcut to symlink the xapian libs to your virtualenv
 # (assumed to be in `pwd`/env)
 alias lnxapian='ln -s /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xapian envs/lib/python2.7/site-packages/. '
@@ -103,6 +109,7 @@ alias darwin='source $HOME/envs/darwin/bin/activate && cd $HOME/projects/darwin'
 alias dotfiles='cd $HOME/projects/dotfiles'
 alias hatch='source $HOME/envs/hatch/bin/activate && cd $HOME/projects/hatch/source'
 alias millersoath='source $HOME/envs/millersoath/bin/activate && cd $HOME/projects/millersoath/source'
+alias poseidon='source $HOME/envs/poseidon/bin/activate && cd $HOME/projects/poseidon/Poseidon/poseidon'
 alias prinkshop='source $HOME/envs/prinkshop/bin/activate && cd $HOME/projects/prinkshop/source'
 alias ssv='source $HOME/envs/ssv/bin/activate && cd $HOME/projects/ssv/source'
 alias stardust='source $HOME/envs/stardust/bin/activate && cd $HOME/projects/stardust/source'
