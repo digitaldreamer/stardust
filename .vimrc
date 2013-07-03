@@ -1,3 +1,7 @@
+" KEY BINDINGS
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+nnoremap K <Esc>i<Enter><Esc>
+
 " All UTF-8 all the time
 scriptencoding utf-8
 set encoding=utf-8
@@ -161,10 +165,6 @@ set splitright "open new veritcal splits to the right of the current
 " Enable the mouse in terminal Vim (if supported). In OS X iTerm provides
 " this functionality.
 set mouse=a
-
-
-" KEY BINDINGS
-nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " PLUGIN CONFIGURATION
 let mapleader=','
