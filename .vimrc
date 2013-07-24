@@ -15,7 +15,7 @@ Bundle 'gmarik/vundle'
 
 " Bundles
 Bundle 'L9'
-Bundle 'git://git.wincent.com/command-t.git'
+"Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'kien/ctrlp.vim'
 "Bundle 'mileszs/ack.vim'
 "Bundle 'majutsushi/tagbar'
