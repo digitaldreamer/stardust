@@ -16,6 +16,8 @@ export VISUAL=vim
 export EDITOR=vim
 export CLICOLOR=1
 
+taillog () { sudo tail -f /etc/service/$1/log/main/current ; }
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
