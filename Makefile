@@ -36,7 +36,7 @@ vim:
 	cp -R $(STARDUST)/vim/* ~/.vim/
 	git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 	vim +BundleInstall +qall
-	cd ~/.vim/bundle/command-t/; rake make
+	#cd ~/.vim/bundle/command-t/; rake make
 
 ubuntu:
 	mkdir -p ~/bin ~/envs ~/projects ~/www
