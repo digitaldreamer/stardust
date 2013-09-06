@@ -113,6 +113,7 @@ alias poseidon='source $HOME/envs/poseidon/bin/activate && cd $HOME/projects/pos
 alias prinkshop='source $HOME/envs/prinkshop/bin/activate && cd $HOME/projects/prinkshop/source'
 alias ssv='source $HOME/envs/ssv/bin/activate && cd $HOME/projects/ssv/source'
 alias stardust='cd $HOME/projects/stardust'
+alias sonicunion='cd $HOME/projects/sonicunion-website/'
 alias tspxyz='source $HOME/envs/tspxyz/bin/activate && cd $HOME/projects/tspxyz/source'
 alias twobirds='source $HOME/envs/twobirds/bin/activate && cd $HOME/projects/twobirds/twobirds'
 alias worldranking='source $HOME/envs/worldranking/bin/activate && cd $HOME/projects/worldranking/web-app'
