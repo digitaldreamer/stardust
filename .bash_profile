@@ -1,100 +1,76 @@
-export PATH=$PATH:.:~/bin:~/dotfiles/bin
+export PATH=/usr/local/share/npm/bin:$HOME/bin:$HOME/dotfiles/bin:$PATH
+export NODE_PATH="/usr/local/lib/node_modules"
 
-export PGLIB=/usr/lib/pgsql
-export PGDATA=/var/lib/pgsql/data
 
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# Bash completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
 
-# If not running interactively, don't do anything
-[ -z "$PS1" ] && return
 
-# don't put duplicate lines in the history. See bash(1) for more options
-# ... or force ignoredups and ignorespace
-HISTCONTROL=ignoredups:ignorespace
+# django completion
+if [ -f ~/.django/django_bash_completion ]; then
+   . ~/.django/django_bash_completion
+fi
 
-# append to the history file, don't overwrite it
+
+# pip completion
+_pip_completion()
+{
+   COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
+                  COMP_CWORD=$COMP_CWORD \
+                  PIP_AUTO_COMPLETE=1 $1 ) )
+}
+complete -o default -F _pip_completion pip
+
+
+# Terminal colors
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+
+
+# Default Editor
+# export EDITOR=/usr/bin/mate
+
+
+# Bash format
+# PS1="[\d \u@\s] ~/\W:"
+PS1='\[\033[01;32m\]\u\[\033[01;34m\]::\[\033[01;31m\]\h \[\033[00;34m\]{ \[\033[01;34m\]\w \[\033[00;34m\]}\[\033[01;32m\]-> \[\033[00m\]'
+
+
+# Bash history remove dublicates
+export HISTCONTROL=erasedups
+export HISTSIZE=10000
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+# Alias definitions.
+
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
 fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color) color_prompt=yes;;
-esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
-
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
 
 # Bash shortcuts
 alias ..='cd ..'
-alias getip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2'
-
-# ls aliases
 alias ll='ls -ahlF'
-alias la='ls -A'
-alias l='ls -CF'
+alias getip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2'
+alias atom='. atom'
 
-# Shortcut to symlink the xapian libs to your virtualenv
-# (assumed to be in `pwd`/envs)
-alias lnxapian='ln -s /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xapian envs/lib/python2.7/site-packages/. '
+# Shortcut for activating a virtualenv (assumed to be in `pwd`/envs)
+alias activate='. envs/bin/activate'
+
+# useful cd shortcuts
+alias envs='cd $HOME/envs'
+alias projects='cd $HOME/projects'
+alias lib='cd $HOME/Google\ Drive/Library'
+alias sublpackages='cd $HOME/Library/Application\ Support/Sublime\ Text\ 2/Packages'
 
 # Removes all *.pyc from current directory and all subdirectories
 alias pycclean='find . -name "*.pyc" -exec rm {} \;'
@@ -103,25 +79,50 @@ alias pycclean='find . -name "*.pyc" -exec rm {} \;'
 alias pypath='python -c "import sys; print sys.path" | tr "," "\n" | grep -v "egg"'
 
 # django management commands aliases
-alias run='./manage.py runserver 0.0.0.0:8000'
-alias syncdb='./manage.py syncdb'
-alias migrate='./manage.py migrate'
-alias collectstatic='./manage.py collectstatic'
-alias loaddata='./manage.py loaddata'
-alias shell='./manage.py shell_plus'
+alias collectstatic='./manage.py collectstatic --noinput'
+alias compress='./manage.py compress'
 alias dbshell='./manage.py dbshell'
+alias loaddata='./manage.py loaddata'
+alias migrate='./manage.py migrate'
+alias rebuild='./manage.py rebuild_index'
+alias run='./manage.py runserver 0.0.0.0:8000'
+alias schema='./manage.py schemamigration'
+alias data='./manage.py datamigration'
+alias shell='./manage.py shell_plus'
+alias srun='./source/manage.py runserver 0.0.0.0:8000'
 alias superuser='./manage.py createsuperuser'
-alias rebuild='./manage.py rebuild_index --noinput'
+alias syncdb='./manage.py syncdb'
+
+# pyramid commands aliases
+alias prun='pserve development.ini --reload'
+alias pshell='pshell development.ini'
+
+# Shortcut to symlink the xapian libs to your virtualenv
+# (assumed to be in `pwd`/env)
+alias lnxapian='ln -s /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xapian envs/lib/python2.7/site-packages/. '
 
 # crate new database from template
 alias newdb='createdb -T template_postgis'
+alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Projects alias 
-alias alextoys='source /var/www/alextoys/envs/alextoys/bin/activate && cd /var/www/alextoys/source'
+# Projects shortcuts
+alias alextoys='source $HOME/envs/alextoys/bin/activate && cd $HOME/projects/alextoys/source'
+alias btoys='source $HOME/envs/btoys/bin/activate && cd $HOME/projects/btoys'
+alias closethq='source $HOME/envs/closethq/bin/activate && cd $HOME/projects/closethq/source'
+alias crossover='source $HOME/envs/crossover/bin/activate && cd $HOME/projects/crossover/source'
+alias darwin='source $HOME/envs/darwin/bin/activate && cd $HOME/projects/darwin'
+alias dotfiles='cd $HOME/projects/dotfiles'
+alias hatch='source $HOME/envs/hatch/bin/activate && cd $HOME/projects/hatch/source'
+alias millersoath='source $HOME/envs/millersoath/bin/activate && cd $HOME/projects/millersoath/source'
+alias poseidon='source $HOME/envs/poseidon/bin/activate && cd $HOME/projects/poseidon/Poseidon/poseidon'
+alias prinkshop='source $HOME/envs/prinkshop/bin/activate && cd $HOME/projects/prinkshop/source'
+alias ssv='source $HOME/envs/ssv/bin/activate && cd $HOME/projects/ssv/source'
+alias stardust='cd $HOME/projects/stardust'
+alias sonicunion='cd $HOME/projects/sonicunion-website/'
+alias tspxyz='source $HOME/envs/tspxyz/bin/activate && cd $HOME/projects/tspxyz/source'
+alias twobirds='source $HOME/envs/twobirds/bin/activate && cd $HOME/projects/twobirds/twobirds'
+alias worldranking='source $HOME/envs/worldranking/bin/activate && cd $HOME/projects/worldranking/web-app'
 
 # Server restart
 alias reloadnginx='sudo /etc/init.d/nginx reload'
@@ -130,29 +131,10 @@ alias reloadapache='sudo /etc/init.d/apache2 reload'
 alias reloadpostgres='sudo /etc/init.d/postgresql restart'
 alias reloadservers='reloadnginx; reloadmemcached; reloadapache'
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+# Running realtime sass proccess for monitoring static files
+alias runsass='sass --scss --watch core/static/scss:static/css'
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
-
-# bash completion
-# wget -O ~/.django/django_bash_completion https://raw.github.com/django/django/master/extras/django_bash_completion
-. ~/.django/django_bash_completion
-
-# Terminal colors
-export CLICOLOR=1
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-
-# PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] $(__git_ps1 "(%s)")$ '
-PS1='\[\033[01;32m\]\u\[\033[01;34m\]::\[\033[01;31m\]\h \[\033[00;34m\]{ \[\033[01;34m\]\w \[\033[00;34m\]}\[\033[01;32m\]-> \[\033[00m\]'
+# Load RVM into a shell session.
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

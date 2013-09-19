@@ -1,4 +1,4 @@
-export PATH=/usr/local/share/python:/usr/local/share/python3:/usr/local/share/npm/bin:$HOME/bin:$PATH
+export PATH=/usr/local/share/npm/bin:$HOME/bin:$HOME/dotfiles/bin:$PATH
 export NODE_PATH="/usr/local/lib/node_modules"
 
 
@@ -41,6 +41,10 @@ PS1='\[\033[01;32m\]\u\[\033[01;34m\]::\[\033[01;31m\]\h \[\033[00;34m\]{ \[\033
 export HISTCONTROL=erasedups
 export HISTSIZE=10000
 shopt -s histappend
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
 
 
 # Bash shortcuts
@@ -132,5 +136,3 @@ alias runsass='sass --scss --watch core/static/scss:static/css'
 # Load RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-
