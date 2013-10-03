@@ -1,19 +1,16 @@
-# clean up after fully migrated to homebrew
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/python:$PATH
-export NODE_PATH="/usr/local/lib/node"
+export PATH=/usr/local/share/npm/bin:$HOME/bin:$HOME/dotfiles/bin:$PATH
+export NODE_PATH="/usr/local/lib/node_modules"
 
 # Bash completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
+
 # django completion
 if [ -f ~/.django/django_bash_completion ]; then
    . ~/.django/django_bash_completion
 fi
-
-# npm completion
-# source /opt/local/lib/node_modules/npm/lib/utils/completion.sh
 
 # pip completion
 _pip_completion()
@@ -43,19 +40,27 @@ export HISTCONTROL=erasedups
 export HISTSIZE=10000
 shopt -s histappend
 
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
 
 # Bash shortcuts
 alias ..='cd ..'
 alias ll='ls -ahlF'
 alias getip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2'
+alias atom='. atom'
 
 
 # Shortcut for activating a virtualenv (assumed to be in `pwd`/envs)
 alias activate='. envs/bin/activate'
 
 
-# cd to envs folder
-alias envs='cd /Users/typhoon/envs'
+# useful cd shortcuts
+alias envs='cd $HOME/envs'
+alias projects='cd $HOME/projects'
+alias lib='cd $HOME/Google\ Drive/Library'
+alias sublpackages='cd $HOME/Library/Application\ Support/Sublime\ Text\ 2/Packages'
 
 
 # Removes all *.pyc from current directory and all subdirectories
@@ -74,10 +79,16 @@ alias migrate='./manage.py migrate'
 alias rebuild='./manage.py rebuild_index'
 alias run='./manage.py runserver 0.0.0.0:8000'
 alias schema='./manage.py schemamigration'
+alias data='./manage.py datamigration'
 alias shell='./manage.py shell_plus'
 alias srun='./source/manage.py runserver 0.0.0.0:8000'
 alias superuser='./manage.py createsuperuser'
 alias syncdb='./manage.py syncdb'
+
+
+# pyramid commands aliases
+alias prun='pserve development.ini --reload'
+alias pshell='pshell development.ini'
 
 
 # Shortcut to symlink the xapian libs to your virtualenv
@@ -85,29 +96,29 @@ alias syncdb='./manage.py syncdb'
 alias lnxapian='ln -s /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xapian envs/lib/python2.7/site-packages/. '
 
 
-# Shortcut for PostgreSQL server start/stop
-alias pgstart='sudo su postgres -c '\''/opt/local/lib/postgresql91/bin/pg_ctl -D /opt/local/var/db/postgresql91/defaultdb start'\'''
-# alias pgstart='sudo su postgres -c '\''/opt/local/lib/postgresql91/bin/postgres -D /opt/local/var/db/postgresql91/defaultdb'\'''
-alias pgstop='sudo su postgres -c '\''/opt/local/lib/postgresql91/bin/pg_ctl -D /opt/local/var/db/postgresql91/defaultdb stop'\'''
 # crate new database from template
 alias newdb='createdb -T template_postgis'
+alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+
 
 # Projects shortcuts
-alias alextoys='source /Users/typhoon/envs/alextoys/bin/activate && cd /Users/typhoon/projects/alextoys/source'
-alias btoys='source /Users/typhoon/envs/btoys/bin/activate && cd /Users/typhoon/projects/btoys'
-alias closethq='source /Users/typhoon/envs/closethq/bin/activate && cd /Users/typhoon/projects/closethq/source'
-alias crossover='source /Users/typhoon/envs/crossover/bin/activate && cd /Users/typhoon/projects/crossover/source'
-alias darwin='source /Users/typhoon/envs/darwin/bin/activate && cd /Users/typhoon/projects/darwin'
-alias dotfiles='cd /Users/typhoon/projects/dotfiles'
-alias hatch='source /Users/typhoon/envs/hatch/bin/activate && cd /Users/typhoon/projects/hatch/source'
-alias prinkshop='source /Users/typhoon/envs/prinkshop/bin/activate && cd /Users/typhoon/projects/prinkshop/source'
-alias ssv='source /Users/typhoon/envs/ssv/bin/activate && cd /Users/typhoon/projects/ssv/source'
-alias tspxyz='source /Users/typhoon/envs/tspxyz/bin/activate && cd /Users/typhoon/projects/tspxyz/source'
-alias twobirds='source /Users/typhoon/envs/twobirds/bin/activate && cd /Users/typhoon/projects/twobirds/twobirds'
-alias worldranking='source /Users/typhoon/envs/worldranking/bin/activate && cd /Users/typhoon/projects/worldranking/web-app'
-
-# Nav shortcuts
-alias lib='cd /Users/typhoon/Google\ Drive/Library/'
+alias alextoys='source $HOME/envs/alextoys/bin/activate && cd $HOME/projects/alextoys/source'
+alias btoys='source $HOME/envs/btoys/bin/activate && cd $HOME/projects/btoys'
+alias closethq='source $HOME/envs/closethq/bin/activate && cd $HOME/projects/closethq/source'
+alias crossover='source $HOME/envs/crossover/bin/activate && cd $HOME/projects/crossover/source'
+alias darwin='source $HOME/envs/darwin/bin/activate && cd $HOME/projects/darwin'
+alias dotfiles='cd $HOME/projects/dotfiles'
+alias hatch='source $HOME/envs/hatch/bin/activate && cd $HOME/projects/hatch/source'
+alias millersoath='source $HOME/envs/millersoath/bin/activate && cd $HOME/projects/millersoath/source'
+alias poseidon='source $HOME/envs/poseidon/bin/activate && cd $HOME/projects/poseidon/Poseidon/poseidon'
+alias prinkshop='source $HOME/envs/prinkshop/bin/activate && cd $HOME/projects/prinkshop/source'
+alias ssv='source $HOME/envs/ssv/bin/activate && cd $HOME/projects/ssv/source'
+alias stardust='cd $HOME/projects/stardust'
+alias sonicunion='cd $HOME/projects/sonicunion-website/'
+alias tspxyz='source $HOME/envs/tspxyz/bin/activate && cd $HOME/projects/tspxyz/source'
+alias twobirds='source $HOME/envs/twobirds/bin/activate && cd $HOME/projects/twobirds/twobirds'
+alias worldranking='source $HOME/envs/worldranking/bin/activate && cd $HOME/projects/worldranking/web-app'
 
 # Server restart
 alias reloadnginx='sudo /etc/init.d/nginx reload'
@@ -122,6 +133,4 @@ alias runsass='sass --scss --watch core/static/scss:static/css'
 
 # Load RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-[[ -s "/Users/typhoon/.rvm/scripts/rvm" ]] && source "/Users/typhoon/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
