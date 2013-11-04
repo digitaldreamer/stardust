@@ -1,7 +1,6 @@
 export PATH=/usr/local/share/npm/bin:$HOME/bin:$HOME/dotfiles/bin:$PATH
 export NODE_PATH="/usr/local/lib/node_modules"
 
-
 # Bash completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
@@ -12,7 +11,6 @@ fi
 if [ -f ~/.django/django_bash_completion ]; then
    . ~/.django/django_bash_completion
 fi
-
 
 # pip completion
 _pip_completion()
