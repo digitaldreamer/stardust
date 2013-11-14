@@ -1,4 +1,4 @@
-export PATH=/usr/local/share/npm/bin:$HOME/bin:$HOME/dotfiles/bin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$HOME/bin:$HOME/dotfiles/bin:$PATH
 export NODE_PATH="/usr/local/lib/node_modules"
 
 
