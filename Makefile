@@ -1,6 +1,7 @@
 ALL=bash vim
 STARDUST=~/stardust
 UNAME := $(shell uname) # detech os, not windows compliant
+HOSTNAME := $(shell hostname)
 
 .PHONY: help vbox $(ALL)
 
@@ -37,6 +38,14 @@ vim:
 	git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 	vim +BundleInstall +qall
 	#cd ~/.vim/bundle/command-t/; rake make
+
+ssh:
+	mkdir ~/.ssh
+	touch ~/.ssh/authorized_keys
+	touch ~/.ssh/config
+	chmod 700 ~/.ssh
+	chmod 600 ~/.ssh/*
+	cd ~/.ssh; ssh-keygen -t rsa -C "$(HOSTNAME)"
 
 ubuntu:
 	mkdir -p ~/bin ~/envs ~/projects ~/www
