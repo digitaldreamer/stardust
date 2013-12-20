@@ -1,6 +1,8 @@
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$HOME/bin:$HOME/dotfiles/bin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$HOME/bin:$HOME/dotfiles/bin:$HOME/.rvm/bin:$PATH
 export NODE_PATH="/usr/local/lib/node_modules"
 
+# need for makara
+export BPMAG_CONFIG_PATH=/Users/typhoon/projects/makara/config/local.cfg
 
 # Bash completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
