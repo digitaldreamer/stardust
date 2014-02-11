@@ -11,8 +11,10 @@ export NODE_PATH="/usr/local/lib/node_modules"
 export BPMAG_CONFIG_PATH=/Users/typhoon/projects/makara/config/local.cfg
 
 # Bash completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+if [ $(command -v brew) ]; then # see if brew is installed.
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        . $(brew --prefix)/etc/bash_completion
+    fi
 fi
 
 
@@ -113,24 +115,6 @@ alias lnxapian='ln -s /opt/local/Library/Frameworks/Python.framework/Versions/2.
 alias newdb='createdb -T template_postgis'
 alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
-
-# Projects shortcuts
-alias alextoys='source $HOME/envs/alextoys/bin/activate && cd $HOME/projects/alextoys/source'
-alias btoys='source $HOME/envs/btoys/bin/activate && cd $HOME/projects/btoys'
-alias closethq='source $HOME/envs/closethq/bin/activate && cd $HOME/projects/closethq/source'
-alias crossover='source $HOME/envs/crossover/bin/activate && cd $HOME/projects/crossover/source'
-alias darwin='source $HOME/envs/darwin/bin/activate && cd $HOME/projects/darwin'
-alias dotfiles='cd $HOME/projects/dotfiles'
-alias hatch='source $HOME/envs/hatch/bin/activate && cd $HOME/projects/hatch/source'
-alias millersoath='source $HOME/envs/millersoath/bin/activate && cd $HOME/projects/millersoath/source'
-alias poseidon='source $HOME/envs/poseidon/bin/activate && cd $HOME/projects/poseidon/Poseidon/poseidon'
-alias prinkshop='source $HOME/envs/prinkshop/bin/activate && cd $HOME/projects/prinkshop/source'
-alias ssv='source $HOME/envs/ssv/bin/activate && cd $HOME/projects/ssv/source'
-alias stardust='cd $HOME/projects/stardust'
-alias sonicunion='cd $HOME/projects/sonicunion-website/'
-alias tspxyz='source $HOME/envs/tspxyz/bin/activate && cd $HOME/projects/tspxyz/source'
-alias twobirds='source $HOME/envs/twobirds/bin/activate && cd $HOME/projects/twobirds/twobirds'
-alias worldranking='source $HOME/envs/worldranking/bin/activate && cd $HOME/projects/worldranking/web-app'
 
 # Server restart
 alias reloadnginx='sudo /etc/init.d/nginx reload'
