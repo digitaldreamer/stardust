@@ -10,13 +10,16 @@ export NODE_PATH="/usr/local/lib/node_modules"
 # need for makara
 export BPMAG_CONFIG_PATH=/Users/typhoon/projects/makara/config/local.cfg
 
-# Bash completion
-if [ $(command -v brew) ]; then # see if brew is installed.
-    if [ -f $(brew --prefix)/etc/bash_completion ]; then
-        . $(brew --prefix)/etc/bash_completion
-    fi
-fi
 
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+elif [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
 
 # django completion
 if [ -f ~/.django/django_bash_completion ]; then
@@ -45,7 +48,7 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # Bash format
 # PS1="[\d \u@\s] ~/\W:"
-PS1='\[\033[01;32m\]\u\[\033[01;34m\]::\[\033[01;31m\]\h \[\033[00;34m\]{ \[\033[01;34m\]\w \[\033[00;34m\]}\[\033[01;32m\]-> \[\033[00m\]'
+PS1='\[\033[01;32m\]\u\[\033[01;34m\]::\[\033[01;31m\]\h \[\033[00;34m\]{ \[\033[01;34m\]\w \[\033[00;34m\]}\[\033[01;32m\] $(__git_ps1 "(%s)") -> \[\033[00m\]'
 
 
 # Bash history remove dublicates
