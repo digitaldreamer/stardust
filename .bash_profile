@@ -83,7 +83,7 @@ alias activate='. envs/bin/activate'
 alias envs='cd $HOME/envs'
 alias projects='cd $HOME/projects'
 alias lib='cd $HOME/Google\ Drive/Library'
-alias sublpackages='cd $HOME/Library/Application\ Support/Sublime\ Text\ 2/Packages'
+alias sublpackages='cd $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packages/User'
 
 # Removes all *.pyc from current directory and all subdirectories
 alias pycclean='find . -name "*.pyc" -exec rm {} \;'
