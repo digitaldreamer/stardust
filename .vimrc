@@ -103,6 +103,7 @@ set shiftround
 
 "autocmd BufNewFile,BufRead [Mm]akefile* set noexpandtab
 autocmd FileType html :setlocal sw=2 ts=2 sts=2
+autocmd FileType htmldjango :setlocal sw=2 ts=2 sts=2
 
 " Enable filetype-specific indenting, and plugins
 filetype plugin indent on
