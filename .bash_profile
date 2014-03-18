@@ -130,5 +130,9 @@ alias reloadservers='reloadnginx; reloadmemcached; reloadapache'
 alias runsass='sass --scss --watch core/static/scss:static/css'
 
 
+# FU stuff
+alias fuweb='cd ~/shared/fu-web;source ~/.virtualenvs/fu-web/bin/activate'
+alias furun='python manage.py runserver 0.0.0.0:8000 --settings=fu_web.settings.development'
+
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
