@@ -94,14 +94,15 @@ alias pypath='python -c "import sys; print sys.path" | tr "," "\n" | grep -v "eg
 # django management commands aliases
 alias collectstatic='./manage.py collectstatic --noinput'
 alias compress='./manage.py compress'
+alias shell='./manage.py shell_plus'
 alias dbshell='./manage.py dbshell'
+alias debshell='./manage.py debugsqlshell'
 alias loaddata='./manage.py loaddata'
 alias migrate='./manage.py migrate'
 alias rebuild='./manage.py rebuild_index'
 alias run='./manage.py runserver 0.0.0.0:8000'
 alias schema='./manage.py schemamigration'
 alias data='./manage.py datamigration'
-alias shell='./manage.py shell_plus'
 alias srun='./source/manage.py runserver 0.0.0.0:8000'
 alias superuser='./manage.py createsuperuser'
 alias syncdb='./manage.py syncdb'
@@ -131,8 +132,10 @@ alias runsass='sass --scss --watch core/static/scss:static/css'
 
 
 # FU stuff
-alias fuweb='cd ~/shared/fu-web;source ~/.virtualenvs/fu-web/bin/activate'
 alias furun='python manage.py runserver 0.0.0.0:8000 --settings=fu_web.settings.development'
+alias fushell='python manage.py shell --settings=fu_web.settings.development'
+alias fudshell='python manage.py debugsqlshell --settings=fu_web.settings.development'
+export DJANGO_SETTINGS_MODULE='fu_web.settings.development'
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

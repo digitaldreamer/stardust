@@ -3,17 +3,17 @@
 #
 #  woof -- an ad-hoc single file webserver
 #  Copyright (C) 2004-2009 Simon Budig  <simon@budig.de>
-# 
+#
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
 #  the Free Software Foundation; either version 2 of the License, or
 #  (at your option) any later version.
-# 
+#
 #  This program is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #  GNU General Public License for more details.
-# 
+#
 #  A copy of the GNU General Public License is available at
 #  http://www.fsf.org/licenses/gpl.txt, you can also write to the
 #  Free Software  Foundation, Inc., 59 Temple Place - Suite 330,
@@ -147,7 +147,7 @@ class FileServHTTPRequestHandler (BaseHTTPServer.BaseHTTPRequestHandler):
       if not upload:
          self.send_error (501, "Unsupported method (POST)")
          return
-      
+
       # taken from
       # http://mail.python.org/pipermail/python-list/2006-September/402441.html
 
@@ -160,13 +160,13 @@ class FileServHTTPRequestHandler (BaseHTTPServer.BaseHTTPRequestHandler):
       if not form.has_key ("upfile"):
          self.send_error (403, "No upload provided")
          return
-         
+
       upfile = form["upfile"]
 
       if not upfile.file or not upfile.filename:
          self.send_error (403, "No upload provided")
          return
-      
+
       upfilename = upfile.filename
 
       if "\\" in upfilename:
@@ -192,7 +192,7 @@ class FileServHTTPRequestHandler (BaseHTTPServer.BaseHTTPRequestHandler):
       print >>sys.stderr, "accepting uploaded file: %s -> %s" % (upfilename, destfilename)
 
       shutil.copyfileobj (upfile.file, os.fdopen (destfile, "w"))
-      
+
       if upfile.done == -1:
          self.send_error (408, "upload interrupted")
 
@@ -214,7 +214,7 @@ class FileServHTTPRequestHandler (BaseHTTPServer.BaseHTTPRequestHandler):
       maxdownloads -= 1
 
       return
-      
+
 
    def do_GET (self):
       global maxdownloads, cpid, compressed, upload
@@ -280,7 +280,7 @@ class FileServHTTPRequestHandler (BaseHTTPServer.BaseHTTPRequestHandler):
          # Child process
          child = None
          type = None
-         
+
          if os.path.isfile (self.filename):
             type = "file"
          elif os.path.isdir (self.filename):
@@ -377,19 +377,19 @@ def usage (defport, defmaxdown, errmsg = None):
            %s [-i <ip_addr>] [-p <port>] [-c <count>] -U
 
            %s <url>
-   
+
     Serves a single file <count> times via http on port <port> on IP
     address <ip_addr>.
     When a directory is specified, an tar archive gets served. By default
-    it is gzip compressed. You can specify -z for gzip compression, 
+    it is gzip compressed. You can specify -z for gzip compression,
     -j for bzip2 compression, -Z for ZIP compression or -u for no compression.
-    You can configure your default compression method in the configuration 
+    You can configure your default compression method in the configuration
     file described below.
 
     When -s is specified instead of a filename, %s distributes itself.
 
     When -U is specified, woof provides an upload form, allowing file uploads.
-   
+
     defaults: count = %d, port = %d
 
     If started with an url as an argument, woof acts as a client,
@@ -541,7 +541,7 @@ def main ():
             if maxdown <= 0:
                raise ValueError
          except ValueError:
-            usage (defaultport, defaultmaxdown, 
+            usage (defaultport, defaultmaxdown,
                    "invalid download count: %r. "
                    "Please specify an integer >= 0." % val)
 

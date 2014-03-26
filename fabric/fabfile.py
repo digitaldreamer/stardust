@@ -79,7 +79,7 @@ def _apt_get(package):
     Install a single package on the remote server with Apt.
     """
     sudo('apt-get install -y %s' % package)
- 
+
 
 def _easy_install(package):
     """
