@@ -1,6 +1,7 @@
 HOMEBREW=/usr/local/sbin:/usr/local/bin
 DOTFILES_BIN=$HOME/dotfiles/bin
 RVM=/Users/typhoon/.rvm/gems/ruby-2.1.0/bin
+WORKON_HOME=$HOME/venvs
 
 PASSENGER_CONFIG=/usr/local/Cellar/passenger/4.0.33/libexec/lib/phusion_passenger/locations.ini
 
