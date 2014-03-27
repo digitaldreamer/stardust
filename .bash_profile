@@ -135,6 +135,7 @@ alias runsass='sass --scss --watch core/static/scss:static/css'
 alias furun='python manage.py runserver 0.0.0.0:8000 --settings=fu_web.settings.development'
 alias fushell='python manage.py shell --settings=fu_web.settings.development'
 alias fudshell='python manage.py debugsqlshell --settings=fu_web.settings.development'
+alias fumigrate='python manage.py smartmigrate --settings=fu_web.settings.development'
 export DJANGO_SETTINGS_MODULE='fu_web.settings.development'
 
 # Load RVM into a shell session *as a function*
