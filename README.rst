@@ -21,6 +21,12 @@ VIRTUALBOX
     sudo vim /etc/fstab
     projects /home/<user>/projects vboxsf uid=1000,gid=1000 0 0
 
+    sudo apt-get install virtualbox-ose-guest-utils
+
+    # add line to file
+    sudo vim /etc/modules
+    vboxsf
+
     sudo reboot
 
 #. run the following on the host to prep vbox: this will ask for your password twice and leave you logged into ssh on the vbox::
