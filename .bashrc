@@ -133,3 +133,11 @@ fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# atom auto complete
+_atom_complete () {
+# Set
+IFS=$'\n' tmp=( $(compgen -W "$(ls ~/projects/)" -- "${COMP_WORDS[$COMP_CWORD]}" ))
+    COMPREPLY=( "${tmp[@]// /\ }" )
+}
+complete -o default -F _atom_complete atom
