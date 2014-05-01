@@ -11,6 +11,7 @@ VIRTUALBOX
 
     sudo apt-get install ssh
     sudo apt-get install -y virtualbox-guest-additions
+    sudo apt-get install virtualbox-ose-guest-utils
     mkdir ~/cdrom
     sudo mount /dev/cdrom ~/cdrom
     ~/cdrom/VBoxLinuxAdditions.run
@@ -18,10 +19,14 @@ VIRTUALBOX
     sudo visudo
     %sudo   ALL=NOPASSWD: ALL
 
-    sudo vim /etc/fstab
-    projects /home/<user>/projects vboxsf uid=1000,gid=1000 0 0
+    # fstab depricated
+    # sudo vim /etc/fstab
+    # projects /home/<user>/projects vboxsf uid=1000,gid=1000 0 0
 
-    sudo apt-get install virtualbox-ose-guest-utils
+    # relink
+    /sbin/mount.vboxsf -> /usr/lib/x86_64-linux-gnu/VBoxGuestAdditions/mount.vboxsf
+    /etc/rc.local
+    mount -t vboxsf -rw -o uid=1000,gid=1000 projects /home/<user>/projects
 
     # add line to file
     sudo vim /etc/modules
