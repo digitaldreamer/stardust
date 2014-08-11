@@ -125,12 +125,6 @@ elif [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] $(__git_ps1 "(%s)")$ '
-
-if [ -f ~/.bash_local ]; then
-    . ~/.bash_local
-fi
-
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
@@ -141,3 +135,31 @@ IFS=$'\n' tmp=( $(compgen -W "$(ls ~/projects/)" -- "${COMP_WORDS[$COMP_CWORD]}"
     COMPREPLY=( "${tmp[@]// /\ }" )
 }
 complete -o default -F _atom_complete atom
+
+_complete_ssh_hosts ()
+{
+        COMPREPLY=()
+        cur="${COMP_WORDS[COMP_CWORD]}"
+        comp_ssh_hosts=`cat ~/.ssh/known_hosts | \
+                        cut -f 1 -d ' ' | \
+                        sed -e s/,.*//g | \
+                        grep -v ^# | \
+                        uniq | \
+                        grep -v "\[" ;
+                cat ~/.ssh/config | \
+                        grep "^Host " | \
+                        awk '{print $2}'
+                `
+        COMPREPLY=( $(compgen -W "${comp_ssh_hosts}" -- $cur))
+        return 0
+}
+complete -F _complete_ssh_hosts ssh
+complete -F _complete_ssh_hosts sftp
+complete -F _complete_ssh_hosts scp
+complete -F _complete_ssh_hosts rsync
+
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] $(__git_ps1 "(%s)")$ '
+
+if [ -f ~/.bash_local ]; then
+    . ~/.bash_local
+fi
