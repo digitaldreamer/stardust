@@ -5,12 +5,8 @@ WORKON_HOME=$HOME/venvs
 
 PASSENGER_CONFIG=/usr/local/Cellar/passenger/4.0.33/libexec/lib/phusion_passenger/locations.ini
 
-export PATH=$RVM:$PASSENGER_CONFIG:$HOMEBREW:$DOTFILES_BIN:/usr/local/share/npm/bin:$HOME/bin:$HOME/.rvm/bin:$PATH
+export PATH=$RVM:$PASSENGER_CONFIG:$HOMEBREW:$DOTFILES_BIN:/usr/local/share/npm/bin:$HOME/bin:$HOME/.rvm/bin:$PATH:.
 export NODE_PATH="/usr/local/lib/node_modules"
-
-# need for makara
-export BPMAG_CONFIG_PATH=/Users/typhoon/projects/makara/config/local.cfg
-
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -104,7 +100,6 @@ alias rebuildindex='./manage.py rebuild_index --noinput --verbosity=2'
 alias run='./manage.py runserver 0.0.0.0:8000'
 alias schema='./manage.py schemamigration'
 alias data='./manage.py datamigration'
-alias srun='./source/manage.py runserver 0.0.0.0:8000'
 alias superuser='./manage.py createsuperuser'
 alias syncdb='./manage.py syncdb'
 
@@ -137,7 +132,8 @@ alias furun='python manage.py runserver 0.0.0.0:8000 --settings=fu_web.settings.
 alias fushell='python manage.py shell --settings=fu_web.settings.development'
 alias fudshell='python manage.py debugsqlshell --settings=fu_web.settings.development'
 alias fumigrate='python manage.py smartmigrate --settings=fu_web.settings.development'
-export DJANGO_SETTINGS_MODULE='fu_web.settings.development'
+# alias set_fu="export DJANGO_SETTINGS_MODULE='fu_web.settings.development'"
+# alias set_fia="export DJANGO_SETTINGS_MODULE='fia_web.settings.Dev'"
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
