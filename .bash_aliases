@@ -87,4 +87,4 @@ alias reloadservers='reloadnginx; reloadmemcached; reloadapache'
 
 
 # FU stuff
-alias set_fu="export DJANGO_SETTINGS_MODULE='fu_web.settings.development'"
+alias setfu="export DJANGO_SETTINGS_MODULE='fu_web.settings.development'"

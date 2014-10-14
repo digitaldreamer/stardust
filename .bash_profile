@@ -51,9 +51,10 @@ complete -cf sudo man
 # export EDITOR=/usr/bin/mate
 
 
-# Bash format
+# prompt colors/format
 # PS1="[\d \u@\s] ~/\W:"
 PS1='\[\033[01;32m\]\u\[\033[01;34m\]::\[\033[01;31m\]\h \[\033[00;34m\]{ \[\033[01;34m\]\w \[\033[00;34m\]}\[\033[01;32m\] $(__git_ps1 "(%s)") -> \[\033[00m\]'
+
 
 # Bash history remove dublicates
 export HISTCONTROL=erasedups
