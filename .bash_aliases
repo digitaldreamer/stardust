@@ -6,6 +6,7 @@ alias su="su -"
 alias sudo="sudo -E"
 alias whichall="type -all"
 alias flushdns="dscacheutil -flushcache"
+alias unsetdjangoenv="unset DJANGO_SETTINGS_MODULE"
 
 
 # list shortcuts
