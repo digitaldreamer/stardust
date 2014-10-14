@@ -39,6 +39,14 @@ export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 
+# Always enable GREP colors
+export GREP_OPTIONS='--color=auto'
+
+
+# complete sudo and man-pages
+complete -cf sudo man
+
+
 # Default Editor
 # export EDITOR=/usr/bin/mate
 
@@ -46,7 +54,6 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 # Bash format
 # PS1="[\d \u@\s] ~/\W:"
 PS1='\[\033[01;32m\]\u\[\033[01;34m\]::\[\033[01;31m\]\h \[\033[00;34m\]{ \[\033[01;34m\]\w \[\033[00;34m\]}\[\033[01;32m\] $(__git_ps1 "(%s)") -> \[\033[00m\]'
-
 
 # Bash history remove dublicates
 export HISTCONTROL=erasedups
@@ -59,81 +66,46 @@ shopt -s histappend
 shopt -s checkwinsize
 
 
-# Alias definitions.
-
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
+# Separate aliases file
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# Bash shortcuts
-alias ..='cd ..'
-alias ll='ls -ahlF'
-alias getip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2'
-alias atom='. atom'
+# Functions
+# TODO: move to ~/.bash_functions
 
-# Shortcut for activating a virtualenv (assumed to be in `pwd`/envs)
-alias activate='. envs/bin/activate'
-
-# useful cd shortcuts
-alias envs='cd $HOME/envs'
-alias projects='cd $HOME/projects'
-alias lib='cd $HOME/Google\ Drive/Library'
-alias sublpackages='cd $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packages/User'
-
-# Removes all *.pyc from current directory and all subdirectories
-alias pycclean='find . -name "*.pyc" -exec rm {} \;'
-
-# Shortcut to determine your current PYTHONPATH, useful in debugging when switching between virtualenv’s
-alias pypath='python -c "import sys; print sys.path" | tr "," "\n" | grep -v "egg"'
-
-# django management commands aliases
-alias collectstatic='./manage.py collectstatic --noinput'
-alias compress='./manage.py compress'
-alias shell='./manage.py shell_plus'
-alias dbshell='./manage.py dbshell'
-alias debshell='./manage.py debugsqlshell'
-alias loaddata='./manage.py loaddata'
-alias migrate='./manage.py migrate'
-alias rebuildindex='./manage.py rebuild_index --noinput --verbosity=2'
-alias run='./manage.py runserver 0.0.0.0:8000'
-alias schema='./manage.py schemamigration'
-alias data='./manage.py datamigration'
-alias superuser='./manage.py createsuperuser'
-alias syncdb='./manage.py syncdb'
-
-# pyramid commands aliases
-alias prun='pserve development.ini --reload'
-alias pshell='pshell development.ini'
-
-# Shortcut to symlink the xapian libs to your virtualenv
-# (assumed to be in `pwd`/env)
-alias lnxapian='ln -s /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xapian envs/lib/python2.7/site-packages/. '
-
-# crate new database from template
-alias newdb='createdb -T template_postgis'
-alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
-alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
-
-# Server restart
-alias reloadnginx='sudo /etc/init.d/nginx reload'
-alias reloadmemcached='sudo /etc/init.d/memcached restart'
-alias reloadapache='sudo /etc/init.d/apache2 reload'
-alias reloadpostgres='sudo /etc/init.d/postgresql restart'
-alias reloadservers='reloadnginx; reloadmemcached; reloadapache'
-
-# Running realtime sass proccess for monitoring static files
-alias runsass='sass --scss --watch core/static/scss:static/css'
+# list after cd
+cd() { builtin cd "$@"; ll; }
 
 
-# FU stuff
-alias furun='python manage.py runserver 0.0.0.0:8000 --settings=fu_web.settings.development'
-alias fushell='python manage.py shell --settings=fu_web.settings.development'
-alias fudshell='python manage.py debugsqlshell --settings=fu_web.settings.development'
-alias fumigrate='python manage.py smartmigrate --settings=fu_web.settings.development'
-# alias set_fu="export DJANGO_SETTINGS_MODULE='fu_web.settings.development'"
-# alias set_fia="export DJANGO_SETTINGS_MODULE='fia_web.settings.Dev'"
+# remind (remindme <time> <text>)
+function remindme()
+{
+    sleep $1 && zenity --info --text "$2" &
+}
+
+# extract all compressed files
+extract () {
+  if [ -f $1 ] ; then
+      case $1 in
+          *.tar.bz2)   tar xvjf $1    ;;
+          *.tar.gz)    tar xvzf $1    ;;
+          *.bz2)       bunzip2 $1     ;;
+          *.rar)       rar x $1       ;;
+          *.gz)        gunzip $1      ;;
+          *.tar)       tar xvf $1     ;;
+          *.tbz2)      tar xvjf $1    ;;
+          *.tgz)       tar xvzf $1    ;;
+          *.zip)       unzip $1       ;;
+          *.Z)         uncompress $1  ;;
+          *.7z)        7z x $1        ;;
+          *)           echo "don't know how to extract '$1'..." ;;
+      esac
+  else
+      echo "'$1' is not a valid file!"
+  fi
+}
+
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
