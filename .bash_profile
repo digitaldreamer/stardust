@@ -48,7 +48,7 @@ complete -cf sudo man
 
 
 # Default Editor
-# export EDITOR=/usr/bin/mate
+# export EDITOR='subl -w'
 
 
 # prompt colors/format
