@@ -89,3 +89,6 @@ alias reloadservers='reloadnginx; reloadmemcached; reloadapache'
 
 # FU stuff
 alias setfu="export DJANGO_SETTINGS_MODULE='fu_web.settings.development'"
+
+# CAPC stuff
+alias refresh_capc_db='dropdb capc_beta && createdb capc_beta && scp ubuntu@54.210.14.90:/home/web/capc/backups/capc_beta.sql.bz2 backups/. && bzcat backups/capc_beta.sql.bz2 | psql capc_beta'
