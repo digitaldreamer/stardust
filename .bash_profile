@@ -1,7 +1,7 @@
 HOMEBREW=/usr/local/sbin:/usr/local/bin
 DOTFILES_BIN=$HOME/dotfiles/bin
 RVM=/Users/$USER/.rvm/gems/ruby-2.1.0/bin
-PASSENGER_CONFIG=/usr/local/Cellar/passenger/4.0.33/libexec/lib/phusion_passenger/locations.ini
+PASSENGER_CONFIG=/usr/local/Cellar/passenger/5.0.11/libexec/lib/phusion_passenger/locations.ini
 
 export PATH=$RVM:$PASSENGER_CONFIG:$HOMEBREW:$DOTFILES_BIN:$POSTGRES_PATH:/usr/local/share/npm/bin:$HOME/bin:$HOME/.rvm/bin:$PATH:.
 export NODE_PATH="/usr/local/lib/node_modules"
