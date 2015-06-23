@@ -33,8 +33,11 @@ _pip_completion()
 }
 complete -o default -F _pip_completion pip
 
+
 # pyenv completion
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
 
 # Terminal colors
 export CLICOLOR=1
@@ -74,6 +77,7 @@ shopt -s checkwinsize
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
 
 # Functions
 # TODO: move to ~/.bash_functions
