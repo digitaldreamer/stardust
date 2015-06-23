@@ -1,12 +1,12 @@
 HOMEBREW=/usr/local/sbin:/usr/local/bin
 DOTFILES_BIN=$HOME/dotfiles/bin
-RVM=/Users/typhoon/.rvm/gems/ruby-2.1.0/bin
-WORKON_HOME=$HOME/venvs
-POSTGRES_PATH=/Applications/Postgres.app/Contents/Versions/9.4/bin
+RVM=/Users/$USER/.rvm/gems/ruby-2.1.0/bin
 PASSENGER_CONFIG=/usr/local/Cellar/passenger/4.0.33/libexec/lib/phusion_passenger/locations.ini
 
 export PATH=$RVM:$PASSENGER_CONFIG:$HOMEBREW:$DOTFILES_BIN:$POSTGRES_PATH:/usr/local/share/npm/bin:$HOME/bin:$HOME/.rvm/bin:$PATH:.
 export NODE_PATH="/usr/local/lib/node_modules"
+
+export HOMEBREW_GITHUB_API_TOKEN=9ad93e13e78876d41dc81e39ba6414ddf5664711
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -33,6 +33,8 @@ _pip_completion()
 }
 complete -o default -F _pip_completion pip
 
+# pyenv completion
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # Terminal colors
 export CLICOLOR=1
@@ -53,7 +55,8 @@ complete -cf sudo man
 
 # prompt colors/format
 # PS1="[\d \u@\s] ~/\W:"
-PS1='\[\033[01;32m\]\u\[\033[01;34m\]::\[\033[01;31m\]\h \[\033[00;34m\]{ \[\033[01;34m\]\w \[\033[00;34m\]}\[\033[01;32m\] $(__git_ps1 "(%s)") -> \[\033[00m\]'
+# PS1='\[\033[01;32m\]\u\[\033[01;34m\]::\[\033[01;31m\]\h \[\033[00;34m\]{ \[\033[01;34m\]\w \[\033[00;34m\]}\[\033[01;32m\] $(__git_ps1 "(%s)") -> \[\033[00m\]'
+PS1='\[\033[01;32m\]\h \[\033[00;34m\]{ \[\033[01;34m\]\w \[\033[00;34m\]}\[\033[01;32m\]$(__git_ps1 " (%s)") -> \[\033[00m\]'
 
 
 # Bash history remove dublicates

@@ -44,7 +44,7 @@ alias pycclean='find . -name "*.pyc" -exec rm {} \;'
 
 
 # shortcut to determine your current PYTHONPATH, useful in debugging when switching between virtualenv’s
-alias pypath='python -c "import sys; print sys.path" | tr "," "\n" | grep -v "egg"'
+alias pypath='python -c "import sys; print(sys.path)" | tr "," "\n" | grep -v "egg"'
 
 
 # django management commands aliases
@@ -57,7 +57,7 @@ alias loaddata='./manage.py loaddata'
 alias data='./manage.py datamigration'
 alias schema='./manage.py schemamigration'
 alias migrate='./manage.py migrate'
-alias rebuildindex='./manage.py rebuild_index --noinput --verbosity=2'
+alias rebuildindex='./manage.py rebuild_index --noinput --verbosity=1'
 alias run='./manage.py runserver 0.0.0.0:8000'
 alias superuser='./manage.py createsuperuser'
 alias syncdb='./manage.py syncdb'
@@ -91,4 +91,4 @@ alias reloadservers='reloadnginx; reloadmemcached; reloadapache'
 alias setfu="export DJANGO_SETTINGS_MODULE='fu_web.settings.development'"
 
 # CAPC stuff
-alias refresh_capc_db='dropdb capc_beta && createdb capc_beta && scp ubuntu@54.210.14.90:/home/web/capc/backups/capc_beta.sql.bz2 backups/. && bzcat backups/capc_beta.sql.bz2 | psql capc_beta'
+alias refresh_capc_db='dropdb capc && createdb capc && scp ubuntu@54.210.14.90:/home/web/capc/backups/capc.sql.bz2 backups/. && bzcat backups/capc.sql.bz2 | psql capc'
