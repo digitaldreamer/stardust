@@ -51,6 +51,8 @@ ubuntu:
 	mkdir -p ~/bin ~/envs ~/projects ~/www
 	sudo apt-get install -y python-software-properties
 	sudo add-apt-repository ppa:chris-lea/node.js
+	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+	echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get install -y ntp
@@ -61,7 +63,7 @@ ubuntu:
 	sudo apt-get install -y rake
 	sudo apt-get install -y htop
 	sudo apt-get install -y build-essential
-	sudo apt-get install -y git-core
+	sudo apt-get install -y git
 	sudo apt-get install -y bash-completion
 	sudo apt-get install -y nginx
 	#sudo apt-get install -y mysql-server
@@ -75,9 +77,10 @@ ubuntu:
 	#sudo apt-get install -y python-mysqldb
 	sudo apt-get install -y libpq-dev
 	sudo apt-get install -y postgresql
-	sudo apt-get install -y python-psycopg2
+	#sudo apt-get install -y python-psycopg2
 	sudo apt-get install -y sqlite3
-	sudo apt-get install -y mongodb
+	#sudo apt-get install -y mongodb
+	sudo apt-get install -y mongodb-org
 	#sudo apt-get install -y git-core
 	sudo apt-get install -y mercurial
 	sudo apt-get install -y subversion
