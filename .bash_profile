@@ -7,7 +7,7 @@ PASSENGER_CONFIG=/usr/local/Cellar/passenger/5.0.11/libexec/lib/phusion_passenge
 export PATH=$RVM:$PASSENGER_CONFIG:$HOMEBREW:$DOTFILES_BIN:$POSTGRES_PATH:/usr/local/share/npm/bin:$HOME/bin:$HOME/.rvm/bin:$PATH:.
 export NODE_PATH="/usr/local/lib/node_modules"
 
-export HOMEBREW_GITHUB_API_TOKEN=9ad93e13e78876d41dc81e39ba6414ddf5664711
+# export HOMEBREW_GITHUB_API_TOKEN=<github_token>
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
