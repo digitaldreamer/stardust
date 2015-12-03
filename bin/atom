@@ -5,18 +5,24 @@ if [ $# -eq 0 ] ; then
     echo 'pass in a project name'
 else
     # source the virtualenv
-    if [ -f "$HOME/envs/$1/bin/activate" ] ; then
-        source ~/envs/$1/bin/activate
-    fi
+    pyenv activate $1
 
-    # cd to the project directory
-    if [ -d ~/projects/$1/source ] ; then
-        cd ~/projects/$1/source
-    elif [ -d ~/projects/$1 ] ; then
-        cd ~/projects/$1
-    elif [ -d ~/www/$1 ] ; then
-        cd ~/www/$1
+    # cd to the project folder
+    if [ -d ~/projects/freelance/$1 ] ; then
+        cd ~/projects/freelance/$1
+    elif [ -d ~/projects/fu/$1 ] ; then
+        cd ~/projects/fu/$1
+    elif [ -d ~/projects/glg/$1 ] ; then
+        cd ~/projects/glg/$1
+    elif [ -d ~/projects/hr/$1 ] ; then
+        cd ~/projects/hr/$1
+    elif [ -d ~/projects/opensource/$1 ] ; then
+        cd ~/projects/opensource/$1
+    elif [ -d ~/projects/personal/$1 ] ; then
+        cd ~/projects/personal/$1
+    elif [ -d ~/projects/tsp/$1 ] ; then
+        cd ~/projects/tsp/$1
     else
-        echo "project/virtualenv for '$1' not found"
+        printf "project folder for '$1' not found\n add client's folder to atom script"
     fi
 fi

@@ -1,6 +1,7 @@
 HOMEBREW=/usr/local/sbin:/usr/local/bin
 DOTFILES_BIN=$HOME/dotfiles/bin
 RVM=/Users/$USER/.rvm/gems/ruby-2.1.0/bin
+POSTGRES_PATH=/Applications/Postgres.app/Contents/Versions/9.4/bin
 PASSENGER_CONFIG=/usr/local/Cellar/passenger/5.0.11/libexec/lib/phusion_passenger/locations.ini
 
 export PATH=$RVM:$PASSENGER_CONFIG:$HOMEBREW:$DOTFILES_BIN:$POSTGRES_PATH:/usr/local/share/npm/bin:$HOME/bin:$HOME/.rvm/bin:$PATH:.
@@ -37,7 +38,7 @@ complete -o default -F _pip_completion pip
 # pyenv completion
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-
+eval "$(pyenv virtualenv-init -)"
 
 # Terminal colors
 export CLICOLOR=1
@@ -78,41 +79,10 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-
-# Functions
-# TODO: move to ~/.bash_functions
-
-# list after cd
-cd() { builtin cd "$@"; ll; }
-
-
-# remind (remindme <time> <text>)
-function remindme()
-{
-    sleep $1 && zenity --info --text "$2" &
-}
-
-# extract all compressed files
-extract () {
-  if [ -f $1 ] ; then
-      case $1 in
-          *.tar.bz2)   tar xvjf $1    ;;
-          *.tar.gz)    tar xvzf $1    ;;
-          *.bz2)       bunzip2 $1     ;;
-          *.rar)       rar x $1       ;;
-          *.gz)        gunzip $1      ;;
-          *.tar)       tar xvf $1     ;;
-          *.tbz2)      tar xvjf $1    ;;
-          *.tgz)       tar xvzf $1    ;;
-          *.zip)       unzip $1       ;;
-          *.Z)         uncompress $1  ;;
-          *.7z)        7z x $1        ;;
-          *)           echo "don't know how to extract '$1'..." ;;
-      esac
-  else
-      echo "'$1' is not a valid file!"
-  fi
-}
+# Separate functions file
+if [ -f ~/.bash_functions ]; then
+    . ~/.bash_functions
+fi
 
 
 # Load RVM into a shell session *as a function*

@@ -1,7 +1,0 @@
-yolk
-Fabric
-Jinja2
-Markdown
-Pygments
-Sphinx
-docutils
