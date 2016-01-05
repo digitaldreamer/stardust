@@ -7,11 +7,12 @@ export PATH=$PATH:/Applications/SenchaSDKTools-2.0.0-Beta
 export PATH=$PATH:/Applications/SenchaSDKTools-2.0.0-Beta/bin
 export PATH=$PATH:/Applications/SenchaSDKTools-2.0.0-Beta/jsbuilder
 
-alias atom='. atom'
+alias darwin='. ~/stardust/bin/atom'
 alias pyclean='find . -name "*.pyc" -exec rm -rf {} \;'
 alias stardust='cd ~/stardust'
 alias pyramid='pserve development.ini --reload'
 alias runserver='./manage.py runserver 0.0.0.0:8000'
+alias gadget='cd ~/projects/go/src'
 
 export VISUAL=vim
 export EDITOR=vim
