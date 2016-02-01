@@ -10,14 +10,10 @@ else
     # cd to the project directory
     if [ -d ~/projects/$1/source ] ; then
         cd ~/projects/$1/source
-    elif [ -d ~/projects/$1/*/$1 ] ; then
-        cd ~/projects/$1/*/$1
-    elif [ -d ~/projects/$1 ] ; then
-        cd ~/projects/$1
     elif [ -d ~/www/$1/source ] ; then
         cd ~/www/$1/source
-    elif [ -d ~/www/$1/*/$1 ] ; then
-        cd ~/www/$1/*/$1
+    elif [ -d ~/projects/$1 ] ; then
+        cd ~/projects/$1
     elif [ -d ~/www/$1 ] ; then
         cd ~/www/$1
     fi
