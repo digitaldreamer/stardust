@@ -3,16 +3,19 @@ export PATH=$PATH:~/stardust/bin
 export PATH=$PATH:~/node_modules/.bin
 export PATH=$PATH:~/dev/android-sdk-macosx/platform-tools
 export PATH=$PATH:~/development/android-sdk-macosx/platform-tools
-export PATH=$PATH:/Applications/SenchaSDKTools-2.0.0-Beta
-export PATH=$PATH:/Applications/SenchaSDKTools-2.0.0-Beta/bin
-export PATH=$PATH:/Applications/SenchaSDKTools-2.0.0-Beta/jsbuilder
+export PATH=$PATH:~/projects/go/bin
+
+export GOPATH=~/projects/go
+
+eval "$(docker-machine env default)"
+alias docker-hinge-rebuild='cd ~/projects/hinge/api; docker pull hinge/api-base; docker kill api; docker rm api; docker rmi -f dev/api; docker build -t dev/api .; docker run -d -P -p 80:80 -p 8000:8000 --name api -e MONGO_HOST="192.168.99.100:32768" -e SERVICE_ROUTE_HOST="http://localhost" -v python:/api dev/api'
+alias docker-hinge-restart='docker kill api; docker start api'
 
 alias darwin='. ~/stardust/bin/atom'
 alias pyclean='find . -name "*.pyc" -exec rm -rf {} \;'
 alias stardust='cd ~/stardust'
-alias pyramid='pserve development.ini --reload'
-alias runserver='./manage.py runserver 0.0.0.0:8000'
 alias gadget='cd ~/projects/go/src'
+
 
 export VISUAL=vim
 export EDITOR=vim
