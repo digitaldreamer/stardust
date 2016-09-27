@@ -22,7 +22,9 @@ else
         cd ~/projects/personal/$1
     elif [ -d ~/projects/tsp/$1 ] ; then
         cd ~/projects/tsp/$1
+    elif [ -d ~/projects/gestalt/$1 ] ; then
+        cd ~/projects/gestalt/$1
     else
-        printf "project folder for '$1' not found\n add client's folder to atom script"
+        printf "project folder for '$1' not found. add client's folder to atom script."
     fi
 fi

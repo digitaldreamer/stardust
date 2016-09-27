@@ -1,11 +1,14 @@
 HOMEBREW=/usr/local/sbin:/usr/local/bin
 DOTFILES_BIN=$HOME/dotfiles/bin
-RVM=/Users/$USER/.rvm/gems/ruby-2.1.0/bin
+RVM=$HOME/.rvm/gems/ruby-2.1.4/bin
 POSTGRES_PATH=/Applications/Postgres.app/Contents/Versions/9.4/bin
-PASSENGER_CONFIG=/usr/local/Cellar/passenger/5.0.11/libexec/lib/phusion_passenger/locations.ini
-
-export PATH=$RVM:$PASSENGER_CONFIG:$HOMEBREW:$DOTFILES_BIN:$POSTGRES_PATH:/usr/local/share/npm/bin:$HOME/bin:$HOME/.rvm/bin:$PATH:.
+# PASSENGER_CONFIG=/usr/local/Cellar/passenger/5.0.24/libexec/lib/phusion_passenger/locations.ini
+PHP_PATH=$(brew --prefix homebrew/php/php56)/bin
+USER_BIN=$HOME/bin
+ARCANIST_PATH=$HOME/bin/arcanist/bin
+export PATH=$RVM:$HOMEBREW:$USER_BIN:$ARCANIST_PATH:$DOTFILES_BIN:$POSTGRES_PATH:$PHP_PATH:/usr/local/share/npm/bin:$HOME/.rvm/bin:$PATH:.
 export NODE_PATH="/usr/local/lib/node_modules"
+export JAVA_HOME=$(/usr/libexec/java_home)
 
 # export HOMEBREW_GITHUB_API_TOKEN=<github_token>
 
@@ -54,7 +57,7 @@ complete -cf sudo man
 
 
 # Default Editor
-# export EDITOR='subl -w'
+export EDITOR='subl -w'
 
 
 # prompt colors/format
@@ -87,3 +90,8 @@ fi
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# TODO:: remove it
+alias tierscheckout="git checkout origin -- homepage/source/data/tiersByCountry.json"
+alias tiersminboth="yes | cp -irf /Users/StriveForBest/projects/_backups/freelance/citi/tiersByCountryusaus.json /Users/StriveForBest/projects/publicis/citi/homepage/source/data/tiersByCountry.json"
+alias tiersminus="yes | cp -irf /Users/StriveForBest/projects/_backups/freelance/citi/tiersByCountryus.json /Users/StriveForBest/projects/publicis/citi/homepage/source/data/tiersByCountry.json"

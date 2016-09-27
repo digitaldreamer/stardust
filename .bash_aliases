@@ -8,7 +8,7 @@ alias whichall="type -all"
 alias flushdns="dscacheutil -flushcache"
 alias unsetdjangoenv="unset DJANGO_SETTINGS_MODULE"
 alias htop="sudo htop"
-
+alias rsync="rsync -avzh --info=progress2"
 
 # list shortcuts
 alias ll="ls -ahlF"
@@ -38,7 +38,7 @@ alias sublpackages="cd $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packa
 
 # removes all *.pyc from current directory and all subdirectories
 alias pycclean='find . -name "*.pyc" -exec rm {} \;'
-
+alias migrations_clean='ls */migrations/*.py | egrep -v __init__.py | xargs rm'
 
 # shortcut to determine your current PYTHONPATH, useful in debugging when switching between virtualenv’s
 alias pypath='python -c "import sys; print(sys.path)" | tr "," "\n" | grep -v "egg"'
@@ -52,7 +52,7 @@ alias dbshell='./manage.py dbshell'
 alias debshell='./manage.py debugsqlshell'
 alias loaddata='./manage.py loaddata'
 alias emptymigration='./manage.py makemigrations --empty'
-alias migration='./manage.py makemigrations'
+alias makemigrations='./manage.py makemigrations'
 alias migrate='./manage.py migrate'
 alias rebuildindex='./manage.py rebuild_index --noinput --verbosity=2'
 alias run='./manage.py runserver 0.0.0.0:8000'
