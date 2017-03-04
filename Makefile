@@ -49,12 +49,12 @@ ssh:
 
 ubuntu:
 	mkdir -p ~/bin ~/envs ~/projects ~/www
+	sudo apt-get update
+	sudo apt-get upgrade
 	sudo apt-get install -y python-software-properties
 	sudo add-apt-repository ppa:chris-lea/node.js
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 	echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
-	sudo apt-get update
-	sudo apt-get upgrade
 	sudo apt-get install -y ntp
 	sudo apt-get install -y vim
 	#sudo apt-get install -y emacs
@@ -80,7 +80,7 @@ ubuntu:
 	#sudo apt-get install -y python-psycopg2
 	sudo apt-get install -y sqlite3
 	#sudo apt-get install -y mongodb
-	sudo apt-get install -y mongodb-org
+	#sudo apt-get install -y mongodb-org
 	#sudo apt-get install -y git-core
 	sudo apt-get install -y mercurial
 	sudo apt-get install -y subversion
@@ -90,6 +90,7 @@ ubuntu:
 	#sudo apt-get install -y python-xapian
 	#sudo apt-get install -y openjdk-6-jdk
 	sudo apt-get install -y nodejs
+	sudo apt-get install -y golang
 	#sudo apt-get install -y postfix
 	sudo easy_install virtualenv
 	cd ~/; npm install less
