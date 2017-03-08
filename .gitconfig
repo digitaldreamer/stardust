@@ -1,14 +1,18 @@
 [user]
-    name = Alex Zagorodniuk
-    email = typhoon.man@gmail.com
+	name = Alex Zagoro
+	email = 
+[color]
+    ui = true
 [core]
-    excludesfile = ~/.gitignore_global
+	excludesfile = /Users/striveforbest/.gitignore_global
 [difftool "sourcetree"]
-    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-    path =
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
 [mergetool "sourcetree"]
-    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-    trustExitCode = true
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/striveforbest/.stCommitMsg
 [color]
     ui = true
 [push]

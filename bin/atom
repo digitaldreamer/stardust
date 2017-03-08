@@ -5,7 +5,7 @@ if [ $# -eq 0 ] ; then
     echo 'pass in a project name'
 else
     # source the virtualenv
-    pyenv activate $1
+    workon $1
 
     # cd to the project folder
     if [ -d ~/projects/freelance/$1 ] ; then

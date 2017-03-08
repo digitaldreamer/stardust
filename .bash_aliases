@@ -12,7 +12,7 @@ alias rsync="rsync -avzh --info=progress2"
 
 # list shortcuts
 alias ll="ls -ahlF"
-alias sortbysize="ls -s | sort -n"
+alias lls="ls -s | sort -n"
 
 
 # verbose output
@@ -52,15 +52,8 @@ alias dbshell='./manage.py dbshell'
 alias debshell='./manage.py debugsqlshell'
 alias loaddata='./manage.py loaddata'
 alias emptymigration='./manage.py makemigrations --empty'
-alias makemigrations='./manage.py makemigrations'
+alias mkmigrations='./manage.py makemigrations'
 alias migrate='./manage.py migrate'
 alias rebuildindex='./manage.py rebuild_index --noinput --verbosity=2'
 alias run='./manage.py runserver 0.0.0.0:8000'
 alias superuser='./manage.py createsuperuser'
-
-
-# FU stuff
-alias setfu="export DJANGO_SETTINGS_MODULE='fu_web.settings.development'"
-
-# CAPC stuff
-alias refresh_capc_db='dropdb capc && createdb capc && scp ubuntu@54.210.14.90:/home/web/capc/backups/capc.sql.bz2 backups/. && bzcat backups/capc.sql.bz2 | psql capc'
