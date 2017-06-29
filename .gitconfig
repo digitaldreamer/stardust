@@ -1,6 +1,6 @@
 [user]
 	name = Alex Zagoro
-	email = 
+	email = alex.zagoro@eagerminds.nyc
 [color]
     ui = true
 [core]
@@ -16,7 +16,7 @@
 [color]
     ui = true
 [push]
-    default = matching
+	default = simple
 [alias]
     co = checkout
     ci = commit

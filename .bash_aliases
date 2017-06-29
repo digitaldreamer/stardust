@@ -44,6 +44,10 @@ alias migrations_clean='ls */migrations/*.py | egrep -v __init__.py | xargs rm'
 alias pypath='python -c "import sys; print(sys.path)" | tr "," "\n" | grep -v "egg"'
 
 
+# django aliases
+alias killrunserver='pkill -f runserver'
+
+
 # django management commands aliases
 alias collectstatic='./manage.py collectstatic --noinput'
 alias compress='./manage.py compress'
@@ -53,7 +57,9 @@ alias debshell='./manage.py debugsqlshell'
 alias loaddata='./manage.py loaddata'
 alias emptymigration='./manage.py makemigrations --empty'
 alias mkmigrations='./manage.py makemigrations'
+alias lsmigrations='./manage.py showmigrations'
 alias migrate='./manage.py migrate'
 alias rebuildindex='./manage.py rebuild_index --noinput --verbosity=2'
 alias run='./manage.py runserver 0.0.0.0:8000'
+alias runhard='killrunserver; pycclean; run'
 alias superuser='./manage.py createsuperuser'
