@@ -8,6 +8,7 @@ export PATH=$PATH:~/go/bin
 export GOPATH=~/go
 
 # eval "$(docker-machine env default)"
+alias npmbin='PATH=$(npm bin):$PATH'
 alias darwin='. ~/stardust/bin/atom'
 alias pyclean='find . -name "*.pyc" -exec rm -rf {} \;'
 alias stardust='cd ~/stardust'
@@ -163,4 +164,10 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[0
 
 if [ -f ~/.bash_local ]; then
     . ~/.bash_local
+fi
+export PATH=/usr/local/bin:/usr/local/sbin:${PATH}
+export RBENV_ROOT=/usr/local/var/rbenv
+
+if which rbenv > /dev/null ; then
+    eval "$(rbenv init -)"
 fi
