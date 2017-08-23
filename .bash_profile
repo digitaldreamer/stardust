@@ -58,10 +58,14 @@ _pip_completion()
 complete -o default -F _pip_completion pip
 
 
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+
 # pyenv completion
+eval "$(pyenv init -)"
 # if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 # if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 # eval "$(pyenv virtualenv-init -)"
+
 
 # Terminal colors
 export CLICOLOR=1

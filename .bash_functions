@@ -29,3 +29,31 @@ extract () {
       echo "'$1' is not a valid file!"
   fi
 }
+
+trash() { mv $@ ~/.Trash/ ; }
+
+function google() {
+    query=''
+    for arg in $@; do
+        query="$query%20$arg"
+    done;
+    open "http://www.google.com/search?q=$query"
+}
+
+safari () {
+    url=$1
+    if [ ! -e "$url" ] && [[ ! "$url" =~ http://.* ]]
+    then
+        url="http://$url"
+    fi
+    open -a "Safari" $url ;
+}
+
+chrome () {
+    url=$1
+    if [ ! -e "$url" ] && [[ ! "$url" =~ http://.* ]]
+    then
+        url="http://$url"
+    fi
+    open -a "Google Chrome" $url ;
+}

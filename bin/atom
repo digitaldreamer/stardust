@@ -4,6 +4,12 @@ HOME=~
 if [ $# -eq 0 ] ; then
     echo 'pass in a project name'
 else
+    # pyenv versions
+    # echo "Type the python version to use, followed by [ENTER]:"
+    # read py_version
+    # eval "$(pyenv shell $py_version)"
+    # source deactivate
+
     # source the virtualenv
     workon $1
 
