@@ -1,10 +1,12 @@
 HOMEBREW=/usr/local/sbin:/usr/local/bin
-RVM=$HOME/.rvm/gems/ruby-2.1.4/bin
+RVM=$HOME/.rvm/gems/default/bin
 NPM=/usr/local/bin/npm
 PYENV=$HOME/.pyenv/shims/
 POSTGRES_PATH=/Applications/Postgres.app/Contents/Versions/latest/bin
+OPEN_SSL=/usr/local/opt/openssl/bin
 USER_BIN=$HOME/bin
-export PATH=$RVM:$HOMEBREW:$USER_BIN:$POSTGRES_PATH:PYENV:NPM:$HOME:$PATH:.
+
+export PATH=$OPEN_SSL:$RVM:$HOMEBREW:$USER_BIN:$POSTGRES_PATH:PYENV:NPM:$HOME:$PATH:.
 export NODE_PATH="/usr/local/lib/node_modules"
 
 # Load RVM into a shell session *as a function*
@@ -26,12 +28,13 @@ fi
 
 export WORKON_HOME=$HOME/venv
 export PROJECT_HOME=$HOME/projects
-export VIRTUALENV_PYTHON=$HOME/.pyenv/shims/python  # User Python installed by Homebrew
-export VIRTUALENVWRAPPER_PYTHON=$HOME/.pyenv/shims/python  # User pyenv installed by Homebrew
+export VIRTUALENV_PYTHON=$HOME/.pyenv/shims/python  # Use Python installed by Homebrew
+export VIRTUALENVWRAPPER_PYTHON=$HOME/.pyenv/shims/python  # Use pyenv installed by Homebrew
 export VIRTUALENVWRAPPER_VIRTUALENV=$HOME/.pyenv/shims/virtualenv
 export VIRTUALENVWRAPPER_HOOK_DIR=$WORKON_HOME
 export VIRTUALENVWRAPPER_LOG_DIR=$WORKON_HOME
-
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true" 
 
 # PyEnv
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
@@ -42,6 +45,9 @@ pyenv virtualenvwrapper_lazy
 
 # Auto Suggestions
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Auto Completions
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -101,7 +107,7 @@ export UPDATE_ZSH_DAYS=7
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git django pip)
+plugins=(rails git django pip)
 
 source $ZSH/oh-my-zsh.sh
 
