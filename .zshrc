@@ -22,25 +22,20 @@ if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
 
+
 #-------------------#
 # VirtualEnvWrapper #
 #-------------------#
 
 export WORKON_HOME=$HOME/venv
 export PROJECT_HOME=$HOME/projects
-export VIRTUALENV_PYTHON=$HOME/.pyenv/shims/python  # Use Python installed by Homebrew
-export VIRTUALENVWRAPPER_PYTHON=$HOME/.pyenv/shims/python  # Use pyenv installed by Homebrew
-export VIRTUALENVWRAPPER_VIRTUALENV=$HOME/.pyenv/shims/virtualenv
 export VIRTUALENVWRAPPER_HOOK_DIR=$WORKON_HOME
 export VIRTUALENVWRAPPER_LOG_DIR=$WORKON_HOME
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true" 
 
 # PyEnv
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 pyenv virtualenvwrapper_lazy
 
 # Auto Suggestions
@@ -55,15 +50,28 @@ export ZSH=$HOME/.oh-my-zsh
 autoload -Uz compinit
 compinit
 
-#++++++++++++++++++#
+
+#---#
+# Z #
+#---#
+
+# `brew --prefix`/etc/profile.d/z.sh
+
+
+#------------------#
 # DEFAULT SETTINGS #
-#++++++++++++++++++#
+#------------------#
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel9k/powerlevel9k"
+
+# Shorten directory shown
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+POWERLEVEL9K_SHORTEN_DELIMITER=””
+POWERLEVEL9K_SHORTEN_STRATEGY=”truncate_from_right”
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="false"
@@ -107,16 +115,19 @@ export UPDATE_ZSH_DAYS=7
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(rails git django pip)
+plugins=(rails git django pip brew npm)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Set default user to avoid showing 'user' on every line
+DEFAULT_USER=striveforbest”
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -129,7 +140,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id.pub"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -137,5 +148,5 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# alias zshconfig="subl ~/.zshrc"
+# alias ohmyzsh="subl ~/.oh-my-zsh"
