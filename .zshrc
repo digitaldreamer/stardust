@@ -22,6 +22,11 @@ if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
 
+# Get a fortune
+if [ -f /usr/local/bin/fortune ]; then
+	fortune
+fi
+
 
 #-------------------#
 # VirtualEnvWrapper #

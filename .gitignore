@@ -10,6 +10,8 @@
 *~
 #*#
 .#*
+.python-version
+.idea/
 local_settings.py
 backups/
 envs/
