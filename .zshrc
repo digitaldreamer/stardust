@@ -8,6 +8,7 @@ USER_BIN=$HOME/bin
 
 export PATH=$OPEN_SSL:$RVM:$HOMEBREW:$USER_BIN:$POSTGRES_PATH:PYENV:NPM:$HOME:$PATH:.
 export NODE_PATH="/usr/local/lib/node_modules"
+export GPG_TTY=$(tty)
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
@@ -24,8 +25,12 @@ fi
 
 # Get a fortune
 if [ -f /usr/local/bin/fortune ]; then
-	fortune
+    fortune
 fi
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
 
 
 #-------------------#
@@ -120,7 +125,7 @@ export UPDATE_ZSH_DAYS=7
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(rails git django pip brew npm)
+plugins=(rails git django pip brew npm pipenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -155,3 +160,5 @@ export SSH_KEY_PATH="~/.ssh/rsa_id.pub"
 # Example aliases
 # alias zshconfig="subl ~/.zshrc"
 # alias ohmyzsh="subl ~/.oh-my-zsh"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
