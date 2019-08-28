@@ -1,12 +1,13 @@
-HOMEBREW=/usr/local/sbin:/usr/local/bin
-RVM=$HOME/.rvm/gems/default/bin
-NPM=/usr/local/bin/npm
-PYENV=$HOME/.pyenv/shims/
+HOMEBREW_PATH=/usr/local/sbin:/usr/local/bin
+RVM_PATH=$HOME/.rvm/gems/default/bin
+NPM_PATH=/usr/local/bin/npm
+PYENV_PATH=$HOME/.pyenv/shims/
 POSTGRES_PATH=/Applications/Postgres.app/Contents/Versions/latest/bin
-OPEN_SSL=/usr/local/opt/openssl/bin
-USER_BIN=$HOME/bin
+SQLITE_PATH=/usr/local/opt/sqlite/bin
+OPEN_SSL_PATH=/usr/local/opt/openssl/bin
+USER_BIN_PATH=$HOME/bin
 
-export PATH=$OPEN_SSL:$RVM:$HOMEBREW:$USER_BIN:$POSTGRES_PATH:PYENV:NPM:$HOME:$PATH:.
+export PATH=$SQLITE_PATH:$OPEN_SSL_PATH:$RVM_PATH:$HOMEBREW_PATH:$USER_BIN_PATH:$POSTGRES_PATH:PYENV_PATH:NPM_PATH:$HOME:$PATH:.
 export NODE_PATH="/usr/local/lib/node_modules"
 export GPG_TTY=$(tty)
 
@@ -32,6 +33,27 @@ fi
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
+
+#---------#
+# OpenSSL #
+#---------#
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/openssl/lib"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/openssl/include"
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/openssl/lib/pkgconfig"
+
+#------#
+# zlib #
+#------#
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
+
+#--------#
+# sqlite #
+#-------#
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/sqlite/lib"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/sqlite/include"
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/sqlite/lib/pkgconfig"
 
 #-------------------#
 # VirtualEnvWrapper #

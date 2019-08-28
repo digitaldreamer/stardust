@@ -1,18 +1,20 @@
 [user]
 	name = Alex Zagoro
 	email = alex.zagoro@eagerminds.nyc
+	signingkey = 1ADBE035ED723E8A
 [color]
     ui = true
 [core]
-	excludesfile = /Users/striveforbest/.gitignore_global
+	excludesfile = /Users/alex.zagoro/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [commit]
-	template = /Users/striveforbest/.stCommitMsg
+	template = /Users/alex.zagoro/.stCommitMsg
+	gpgsign = true
 [color]
     ui = true
 [push]

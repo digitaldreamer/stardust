@@ -2,12 +2,10 @@ HOMEBREW=/usr/local/sbin:/usr/local/bin
 RVM=$HOME/.rvm/gems/ruby-2.1.4/bin
 POSTGRES_PATH=/Applications/Postgres.app/Contents/Versions/latest/bin
 # PASSENGER_CONFIG=/usr/local/Cellar/passenger/5.0.24/libexec/lib/phusion_passenger/locations.ini
-PHP_PATH=$(brew --prefix homebrew/php/php56)/bin
 USER_BIN=$HOME/bin
 ARCANIST_PATH=$HOME/bin/arcanist/bin
 export PATH=$RVM:$HOMEBREW:$USER_BIN:$ARCANIST_PATH:$POSTGRES_PATH:$PHP_PATH:/usr/local/share/npm/bin:$HOME/.rvm/bin:$PATH:.
 export NODE_PATH="/usr/local/lib/node_modules"
-export JAVA_HOME=$(/usr/libexec/java_home)
 export AWS_DEFAULT_REGION=us-east-1
 
 # Load RVM into a shell session *as a function*
