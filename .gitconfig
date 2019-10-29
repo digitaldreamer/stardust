@@ -1,7 +1,7 @@
 [user]
 	name = Alex Zagoro
 	email = alex.zagoro@eagerminds.nyc
-	signingkey = 1ADBE035ED723E8A
+#	signingkey = 1ADBE035ED723E8A
 [color]
     ui = true
 [core]
@@ -14,7 +14,7 @@
 	trustExitCode = true
 [commit]
 	template = /Users/alex.zagoro/.stCommitMsg
-	gpgsign = true
+#	gpgsign = true
 [color]
     ui = true
 [push]
