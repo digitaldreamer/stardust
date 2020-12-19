@@ -6,8 +6,9 @@ POSTGRES_PATH=/Applications/Postgres.app/Contents/Versions/latest/bin
 SQLITE_PATH=/usr/local/opt/sqlite/bin
 OPEN_SSL_PATH=/usr/local/opt/openssl/bin
 USER_BIN_PATH=$HOME/bin
+BZIP2_PATH=/usr/local/opt/bzip2/bin
 
-export PATH=$SQLITE_PATH:$OPEN_SSL_PATH:$RVM_PATH:$HOMEBREW_PATH:$USER_BIN_PATH:$POSTGRES_PATH:PYENV_PATH:NPM_PATH:$HOME:$PATH:.
+export PATH=$SQLITE_PATH:$OPEN_SSL_PATH:$RVM_PATH:$HOMEBREW_PATH:$USER_BIN_PATH:$POSTGRES_PATH:PYENV_PATH:NPM_PATH:$HOME:$BZIP2_PATH:$PATH:.
 export NODE_PATH="/usr/local/lib/node_modules"
 export GPG_TTY=$(tty)
 
@@ -47,6 +48,11 @@ export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/openssl/lib/pkgconfig"
 export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib"
 export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
+#-------#
+# bzip2 #
+#-------#
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/bzip2/lib"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/bzip2/include"
 
 #--------#
 # sqlite #
@@ -72,15 +78,18 @@ pyenv virtualenvwrapper_lazy
 
 # Auto Suggestions
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Auto highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Auto Completions
-fpath=(/usr/local/share/zsh-completions $fpath)
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  autoload -Uz compinit
+  compinit
+fi
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-
-autoload -Uz compinit
-compinit
 
 
 #---#
@@ -147,14 +156,14 @@ export UPDATE_ZSH_DAYS=7
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git django pip brew npm pipenv)
+plugins=(git django brew npm osx pyenv python pip pipenv)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 # Set default user to avoid showing 'user' on every line
-DEFAULT_USER=striveforbest”
+DEFAULT_USER=alex.zagoro
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -182,5 +191,3 @@ export SSH_KEY_PATH="~/.ssh/rsa_id.pub"
 # Example aliases
 # alias zshconfig="subl ~/.zshrc"
 # alias ohmyzsh="subl ~/.oh-my-zsh"
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
