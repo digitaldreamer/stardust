@@ -16,3 +16,4 @@ backups/
 source/initial_data.json
 docs/_build/
 */build/
+pyproject.toml
