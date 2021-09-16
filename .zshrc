@@ -7,7 +7,11 @@ OPEN_SSL_PATH=/usr/local/opt/openssl/bin
 USER_BIN_PATH=$HOME/bin
 BZIP2_PATH=/usr/local/opt/bzip2/bin
 
-export PATH=$SQLITE_PATH:$OPEN_SSL_PATH:$RVM_PATH:$USER_BIN_PATH:$POSTGRES_PATH:$NPM_PATH:$HOME:$BZIP2_PATH:$HOMEBREW_PATH:$PATH:.
+export PYENV_ROOT="$HOME/.pyenv/bin"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
+export PATH=$SQLITE_PATH:$OPEN_SSL_PATH:$RVM_PATH:$USER_BIN_PATH:$POSTGRES_PATH:$NPM_PATH:$HOME:$BZIP2_PATH:$HOMEBREW_PATH:$PYENV_ROOT:$PATH:.
 export NODE_PATH=/usr/local/lib/node_modules
 export GPG_TTY=$(tty)
 
@@ -63,7 +67,6 @@ export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} $(brew --prefix zlib)/lib/pkgconfig"
 export LDFLAGS="${LDFLAGS} -L$(brew --prefix bzip2)/lib"
 export CPPFLAGS="${CPPFLAGS} -I$(brew --prefix bzip2)/include"
 
-
 #----------#
 # readline #
 #----------#
@@ -107,9 +110,9 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Auto Completions
 if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-  autoload -Uz compinit
-  compinit
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+    autoload -Uz compinit
+    compinit
 fi
 
 # Path to your oh-my-zsh installation.
@@ -224,8 +227,6 @@ export AWS_VAULT_KEYCHAIN_NAME=aws-vault
 # PyEnv
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-if which pyenv > /dev/null; then eval "$(pyenv init --path)"; fi
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+eval "$(pyenv virtualenv-init -)"
 pyenv virtualenvwrapper_lazy
 SYSTEM_VERSION_COMPAT=1
