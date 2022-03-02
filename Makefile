@@ -28,6 +28,11 @@ bash:
 		ln -s $(STARDUST)/.bashrc ~/.bash_profile;\
 	fi
 
+zsh:
+	rm ~/.zshrc
+	ln -s $(STARDUST)/.zshrc ~/.zshrc
+
+
 emacs:
 	ln -s $(STARDUST)/.emacs ~/.emacs
 
