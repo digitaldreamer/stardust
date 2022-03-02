@@ -1,13 +1,14 @@
-export PATH=.:/usr/local/bin:/usr/local/sbin:~/bin:$PATH
+export PATH=.:/usr/local/bin:/usr/local/sbin:/usr/local/opt/python/libexec/bin:~/bin:$PATH
 export PATH=$PATH:~/stardust/bin
 export PATH=$PATH:~/node_modules/.bin
-export PATH=$PATH:~/dev/android-sdk-macosx/platform-tools
-export PATH=$PATH:~/development/android-sdk-macosx/platform-tools
+# export PATH=$PATH:~/dev/android-sdk-macosx/platform-tools
+# export PATH=$PATH:~/development/android-sdk-macosx/platform-tools
 export PATH=$PATH:~/go/bin
 
 export GOPATH=~/go
 
 # eval "$(docker-machine env default)"
+alias flushcache='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 alias npmbin='PATH=$(npm bin):$PATH'
 alias darwin='. ~/stardust/bin/atom'
 alias pyclean='find . -name "*.pyc" -exec rm -rf {} \;'
@@ -171,3 +172,7 @@ export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null ; then
     eval "$(rbenv init -)"
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
