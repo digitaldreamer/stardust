@@ -1,6 +1,6 @@
 [user]
 	name = Alex Zagoro
-	email = alex.zagoro@eagerminds.nyc
+	email = alex@eagerminds.co
 #	signingkey = 1ADBE035ED723E8A
 [color]
     ui = true
@@ -14,11 +14,12 @@
 	trustExitCode = true
 [commit]
 	template = /Users/alex.zagoro/.stCommitMsg
-#	gpgsign = true
+	# gpgsign = true
 [color]
     ui = true
 [push]
 	default = simple
+	autoSetupRemote = true
 [alias]
     co = checkout
     ci = commit
@@ -27,3 +28,7 @@
     hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
     type = cat-file -t
     dump = cat-file -p
+[pull]
+	rebase = true
+[submodule] 
+	recurse = true

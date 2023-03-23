@@ -30,7 +30,6 @@ alias tree="tree -C"
 # useful cd shortcuts
 alias ..="cd .."
 alias ...="cd ../../"
-alias envs="cd $HOME/envs"
 alias lib="cd $HOME/Google\ Drive/Library"
 alias projects="cd $HOME/projects"
 alias sublpackages="cd $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packages/User"
@@ -46,6 +45,7 @@ alias pypath='python -c "import sys; print(sys.path)" | tr "," "\n" | grep -v "e
 
 # django aliases
 alias killrunserver='pkill -f runserver'
+alias pytest='pytest --verbosity=3 --pdb --pdbcls=IPython.terminal.debugger:Pdb -s'
 
 # pipenv
 alias prun='pipenv run'
@@ -69,3 +69,9 @@ alias runplus='python manage.py runserver_plus 0.0.0.0:8000'
 alias runhard='killrunserver; pycclean; run'
 alias runplushard='killrunserver; pycclean; runplus'
 alias superuser='python manage.py createsuperuser'
+
+# docker
+alias stopcontainers='docker stop $(docker ps -aq)'
+alias rmcontainers='docker rm -vf $(docker ps -aq)'
+alias rmimages='docker rmi -f $(docker images -aq)'
+alias rmvolumes='docker volume rm $(docker volume ls -qf dangling=true)'

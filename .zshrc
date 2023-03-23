@@ -3,7 +3,7 @@ RVM_PATH=$HOME/.rvm/gems/default/bin
 NPM_PATH=/usr/local/bin/npm
 POSTGRES_PATH=/Applications/Postgres.app/Contents/Versions/latest/bin
 SQLITE_PATH=/usr/local/opt/sqlite/bin
-OPEN_SSL_PATH=/usr/local/opt/openssl/bin
+OPEN_SSL_PATH=/usr/local/opt/openssl@3/bin
 USER_BIN_PATH=$HOME/bin
 BZIP2_PATH=/usr/local/opt/bzip2/bin
 
@@ -49,8 +49,8 @@ export AWS_VAULT_BACKEND=pass
 #---------#
 # OpenSSL #  # Order matters, the first exports don't have -L/-I
 #---------#
-export LDFLAGS="$(brew --prefix openssl)/lib"
-export CPPFLAGS="$(brew --prefix openssl)/include"
+export LDFLAGS="-L$(brew --prefix openssl)/lib"
+export CPPFLAGS="-I$(brew --prefix openssl)/include"
 export PKG_CONFIG_PATH="$(brew --prefix openssl)/lib/pkgconfig"
 
 #------#
@@ -91,13 +91,21 @@ export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} $(brew --prefix sqlite)/lib/pkgconfig
 #--------#
 # LibFFI #
 #--------#
-export LDFLAGS="-L${LDFLAGS} -L$(brew --prefix libffi)/lib"
-export CPPFLAGS="-I${CPPFLAGS} -I$(brew --prefix libffi)/include"
+export LDFLAGS="${LDFLAGS} -L$(brew --prefix libffi)/lib"
+export CPPFLAGS="${CPPFLAGS} -I$(brew --prefix libffi)/include"
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} $(brew --prefix libffi)/lib/pkgconfig"
+
+#----------#
+# OpenBLAS #
+#----------#
+export LDFLAGS="${LDFLAGS} -L$(brew --prefix openblas)/lib"
+export CPPFLAGS="${CPPFLAGS} -I$(brew --prefix openblas)/include"
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} $(brew --prefix openblas)/lib/pkgconfig"
 
 #-------------------#
 # VirtualEnvWrapper #
 #-------------------#
+export VIRTUALENVWRAPPER_PYTHON=$HOME/.pyenv/bin/shims/python
 export WORKON_HOME=$HOME/venv
 export PROJECT_HOME=$HOME/projects
 export VIRTUALENVWRAPPER_HOOK_DIR=$WORKON_HOME
@@ -179,7 +187,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages colorize pip python brew osx django pyenv pipenv npm)
+plugins=(git colored-man-pages colorize pip python brew macos pyenv pipenv poetry npm)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -230,3 +238,6 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv virtualenv-init -)"
 pyenv virtualenvwrapper_lazy
 SYSTEM_VERSION_COMPAT=1
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
