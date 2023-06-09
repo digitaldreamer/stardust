@@ -1,11 +1,11 @@
 [user]
 	name = Alex Zagoro
 	email = alex@eagerminds.co
-#	signingkey = 1ADBE035ED723E8A
+	signingkey = 8E285DF58ED82475
 [color]
     ui = true
 [core]
-	excludesfile = /Users/alex.zagoro/.gitignore_global
+	excludesfile = /Users/striveforbest/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -14,6 +14,7 @@
 	trustExitCode = true
 [commit]
 	template = /Users/alex.zagoro/.stCommitMsg
+	gpgsign = true
 	# gpgsign = true
 [color]
     ui = true
@@ -32,3 +33,7 @@
 	rebase = true
 [submodule] 
 	recurse = true
+[gpg]
+	program = /usr/local/bin/gpg
+[tag]
+	forceSignAnnotated = true

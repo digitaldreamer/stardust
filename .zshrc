@@ -1,44 +1,9 @@
-HOMEBREW_PATH=/usr/local/sbin:/usr/local/bin
-RVM_PATH=$HOME/.rvm/gems/default/bin
-NPM_PATH=/usr/local/bin/npm
-POSTGRES_PATH=/Applications/Postgres.app/Contents/Versions/latest/bin
-SQLITE_PATH=/usr/local/opt/sqlite/bin
-OPEN_SSL_PATH=/usr/local/opt/openssl@3/bin
-USER_BIN_PATH=$HOME/bin
-BZIP2_PATH=/usr/local/opt/bzip2/bin
-
-export PYENV_ROOT="$HOME/.pyenv/bin"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-
-export PATH=$SQLITE_PATH:$OPEN_SSL_PATH:$RVM_PATH:$USER_BIN_PATH:$POSTGRES_PATH:$NPM_PATH:$HOME:$BZIP2_PATH:$HOMEBREW_PATH:$PYENV_ROOT:$PATH:.
-export NODE_PATH=/usr/local/lib/node_modules
-export GPG_TTY=$(tty)
-
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# Separate aliases file
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-# Separate functions file
-if [ -f ~/.bash_functions ]; then
-    . ~/.bash_functions
-fi
-
-# Get a fortune
-if [ -f /usr/local/bin/fortune ]; then
-    fortune
-fi
-
-
 #-----#
 # NVM #
 #-----#
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #-----------#
 # AWS Vault #
@@ -111,21 +76,8 @@ export PROJECT_HOME=$HOME/projects
 export VIRTUALENVWRAPPER_HOOK_DIR=$WORKON_HOME
 export VIRTUALENVWRAPPER_LOG_DIR=$WORKON_HOME
 
-# Auto Suggestions
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# Auto highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Auto Completions
-if type brew &>/dev/null; then
-    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-    autoload -Uz compinit
-    compinit
-fi
-
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-
+export ZSH="$HOME/.oh-my-zsh"
 
 #------------------#
 # DEFAULT SETTINGS #
@@ -139,8 +91,8 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Shorten directory shown
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-POWERLEVEL9K_SHORTEN_DELIMITER=””
-POWERLEVEL9K_SHORTEN_STRATEGY=”truncate_from_right”
+POWERLEVEL9K_SHORTEN_DELIMITER=""
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="false"
@@ -148,9 +100,6 @@ POWERLEVEL9K_SHORTEN_STRATEGY=”truncate_from_right”
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=7
@@ -161,24 +110,11 @@ export UPDATE_ZSH_DAYS=7
 # Update automatically
 DISABLE_UPDATE_PROMPT="true"
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+COMPLETION_WAITING_DOTS="true"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -187,13 +123,45 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages colorize pip python brew macos pyenv pipenv poetry npm)
+plugins=(
+    1password
+    alias-finder
+    aliases
+    # autoenv
+    aws
+    brew
+    celery
+    charm
+    colored-man-pages
+    colorize
+    command-not-found
+    common-aliases
+    cp
+    docker
+    # dotenv
+    git
+    git-auto-fetch
+    history
+    iterm2
+    macos
+    npm
+    nvm
+    pip
+    pipenv
+    poetry
+    pyenv
+    python
+    sublime
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+)
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 # Set default user to avoid showing 'user' on every line
-DEFAULT_USER=alex.zagoro
+DEFAULT_USER=striveforbest
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -212,21 +180,8 @@ export LANG=en_US.UTF-8
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id.pub"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="subl ~/.zshrc"
-# alias ohmyzsh="subl ~/.oh-my-zsh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-# Ansible
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-export NO_PROXY="*"
+# GPG
+export GPG_TTY=$(tty)
 
 # AWS Vault
 export AWS_VAULT_BACKEND=keychain
@@ -235,9 +190,6 @@ export AWS_VAULT_KEYCHAIN_NAME=aws-vault
 # PyEnv
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-eval "$(pyenv virtualenv-init -)"
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 pyenv virtualenvwrapper_lazy
 SYSTEM_VERSION_COMPAT=1
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
