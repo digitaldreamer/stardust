@@ -3,7 +3,6 @@
 #-----#
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #-----------#
 # AWS Vault #
@@ -176,12 +175,10 @@ export LANG=en_US.UTF-8
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="arm64"
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id.pub"
-# GPG
-export GPG_TTY=$(tty)
 
 # AWS Vault
 export AWS_VAULT_BACKEND=keychain
